@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MindLap Anxiety Self-Awareness Test (MSAT)</title>
+  <title>MindLap Anxiety Test</title>
   <style>
     :root{
       --bg:#ffffff;
@@ -47,8 +47,7 @@
 
     .hero{
       padding:26px 20px 18px;
-      background:
-        linear-gradient(180deg, #ffffff 0%, #fbf8ff 100%);
+      background:linear-gradient(180deg, #ffffff 0%, #fbf8ff 100%);
       border-bottom:1px solid var(--line);
     }
 
@@ -59,11 +58,16 @@
       margin-bottom:14px;
     }
 
-    .brand img{
-      max-width:220px;
-      width:min(220px, 65vw);
-      height:auto;
-      display:block;
+    .brand-text{
+      font-size:20px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#3b0764;
+      background:linear-gradient(135deg, #ffffff, #f5f3ff);
+      border:1px solid var(--line);
+      padding:10px 16px;
+      border-radius:999px;
     }
 
     h1{
@@ -215,7 +219,8 @@
       margin-top:18px;
     }
 
-    .actions button{
+    .actions button,
+    .connect-btn{
       border:none;
       border-radius:16px;
       padding:14px 18px;
@@ -225,15 +230,21 @@
       transition:transform .12s ease, opacity .12s ease, background .12s ease;
     }
 
-    .actions button:hover{transform:translateY(-1px)}
+    .actions button:hover,
+    .connect-btn:hover{
+      transform:translateY(-1px);
+    }
+
     .primary{
       background:linear-gradient(135deg, var(--purple-dark), var(--purple));
       color:#fff;
     }
+
     .secondary{
       background:#f3e8ff;
       color:#4c1d95;
     }
+
     .primary:disabled{
       opacity:.45;
       cursor:not-allowed;
@@ -285,6 +296,17 @@
       color:#4b5563;
     }
 
+    .connect-wrap{
+      margin-top:16px;
+      display:none;
+    }
+
+    .connect-btn{
+      background:linear-gradient(135deg, #7c3aed, #a855f7);
+      color:#fff;
+      width:100%;
+    }
+
     .notice{
       margin-top:16px;
       border-radius:18px;
@@ -309,10 +331,10 @@
     <div class="card">
       <div class="hero">
         <div class="brand">
-          <img src="mindlap-logo.jpeg" alt="MindLap Logo" />
+          <div class="brand-text">MindLap</div>
         </div>
 
-        <h1>MindLap Anxiety Self-Awareness Test (MSAT)</h1>
+        <h1>MindLap Anxiety Test</h1>
 
         <p class="subtitle">
           A simple self-check tool for awareness and reflection.
@@ -537,6 +559,9 @@
             <div class="mini" id="clientInfo"></div>
             <div class="mini" id="saveInfo"></div>
           </div>
+          <div class="connect-wrap" id="connectWrap">
+            <button type="button" class="connect-btn" id="whatsappBtn">Connect with us</button>
+          </div>
         </div>
 
         <div class="notice">
@@ -548,11 +573,13 @@
 
   <script>
     const sheetUrl = "https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec";
-    const whatsappNumber = "918590991552"; // Replace with your WhatsApp number without +
+    const whatsappNumber = "91XXXXXXXXXX"; // Replace with your WhatsApp number without +
 
-    const answers = {};
     const questionCount = 15;
+    const saveKey = "mindlap_msat_responses";
+    const answers = {};
 
+    const form = document.getElementById("testForm");
     const fullNameEl = document.getElementById("fullname");
     const phoneEl = document.getElementById("phone");
     const ageEl = document.getElementById("age");
@@ -567,9 +594,8 @@
     const resultDesc = document.getElementById("resultDesc");
     const clientInfo = document.getElementById("clientInfo");
     const saveInfo = document.getElementById("saveInfo");
-    const form = document.getElementById("testForm");
-
-    const saveKey = "mindlap_msat_responses";
+    const connectWrap = document.getElementById("connectWrap");
+    const whatsappBtn = document.getElementById("whatsappBtn");
 
     function countAnswered() {
       let count = 0;
@@ -588,17 +614,16 @@
 
     function updateProgress() {
       const answered = countAnswered();
-      progressEl.querySelector("span").textContent = `Answered ${answered} / ${questionCount}`;
-
-      const basicReady =
+      const ready =
         fullNameEl.value.trim() &&
         phoneEl.value.trim() &&
         ageEl.value.trim() &&
         consentEl.checked &&
         allQuestionsAnswered();
 
-      readyTextEl.textContent = basicReady ? "Ready to submit" : "Form not ready yet";
-      submitBtn.disabled = !basicReady;
+      progressEl.firstElementChild.textContent = `Answered ${answered} / ${questionCount}`;
+      readyTextEl.textContent = ready ? "Ready to submit" : "Form not ready yet";
+      submitBtn.disabled = !ready;
     }
 
     function getResult(score) {
@@ -636,13 +661,13 @@
 
     function buildWhatsAppMessage(payload) {
       return [
-        "MindLap Anxiety Self-Awareness Test (MSAT)",
+        "MindLap Anxiety Test",
         `Name: ${payload.fullname}`,
         `Phone: ${payload.phone}`,
         `Age: ${payload.age}`,
         `Score: ${payload.score}/45`,
         `Result: ${payload.result}`,
-        `Timestamp: ${new Date(payload.timestamp).toLocaleString()}`,
+        `Timestamp: ${new Date(payload.timestamp).toLocaleString()}`
       ].join("\n");
     }
 
@@ -650,11 +675,6 @@
       const existing = JSON.parse(localStorage.getItem(saveKey) || "[]");
       existing.push(payload);
       localStorage.setItem(saveKey, JSON.stringify(existing));
-    }
-
-    function sendToWhatsApp(message) {
-      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
     }
 
     async function sendToSheet(payload) {
@@ -671,6 +691,14 @@
         console.error("Sheet save failed:", error);
       }
     }
+
+    function openWhatsApp() {
+      const message = whatsappDataMessage || "MindLap Anxiety Test";
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+
+    let whatsappDataMessage = "";
 
     document.querySelectorAll("select").forEach((el) => {
       el.addEventListener("change", updateProgress);
@@ -706,13 +734,14 @@
       resultDesc.textContent = result.text;
       clientInfo.textContent = `Client: ${payload.fullname} | Age: ${payload.age} | Phone: ${payload.phone}`;
       saveInfo.textContent = "Saved locally and sent to Google Sheets";
+      whatsappDataMessage = buildWhatsAppMessage(payload);
 
+      connectWrap.style.display = "block";
       resultBox.style.display = "block";
       resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      const waMessage = buildWhatsAppMessage(payload);
-      sendToWhatsApp(waMessage);
     });
+
+    whatsappBtn.addEventListener("click", openWhatsApp);
 
     resetBtn.addEventListener("click", () => {
       form.reset();
@@ -720,13 +749,17 @@
       phoneEl.value = "";
       ageEl.value = "";
       consentEl.checked = false;
+
       Object.keys(answers).forEach((k) => delete answers[k]);
       resultBox.style.display = "none";
+      connectWrap.style.display = "none";
       scoreText.textContent = "";
       resultTitle.textContent = "";
       resultDesc.textContent = "";
       clientInfo.textContent = "";
       saveInfo.textContent = "";
+      whatsappDataMessage = "";
+
       updateProgress();
     });
 
