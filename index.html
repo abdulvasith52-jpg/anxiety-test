@@ -1,114 +1,329 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MindLap Anxiety Self-Awareness Test (MSAT)</title>
   <style>
     body{
-      font-family: Arial;
-      background:#f4f4f4;
+      font-family: Arial, sans-serif;
+      background:#f4f6f8;
+      margin:0;
       padding:20px;
-      max-width:800px;
+      color:#111827;
+    }
+    .container{
+      max-width:900px;
       margin:auto;
+      background:#fff;
+      padding:24px;
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+    h1{
+      text-align:center;
+      margin:0 0 10px;
+      font-size:30px;
+    }
+    p.sub{
+      text-align:center;
+      color:#4b5563;
+      margin-top:0;
+      line-height:1.6;
+    }
+    .score-box{
+      background:#eef2ff;
+      padding:12px 16px;
+      border-radius:12px;
+      margin:18px 0 24px;
+      font-weight:600;
     }
     .question{
-      background:white;
-      padding:15px;
-      margin-bottom:15px;
+      background:#fafafa;
+      border:1px solid #e5e7eb;
+      padding:16px;
+      margin-bottom:14px;
+      border-radius:14px;
+    }
+    .question p{
+      margin:0 0 10px;
+      font-weight:600;
+      line-height:1.5;
+    }
+    select{
+      width:100%;
+      max-width:260px;
+      padding:10px;
       border-radius:10px;
+      border:1px solid #cbd5e1;
+      background:#fff;
+      font-size:15px;
+    }
+    .buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:20px;
     }
     button{
-      background:black;
+      background:#111827;
       color:white;
-      padding:12px 20px;
+      padding:12px 18px;
       border:none;
-      border-radius:10px;
+      border-radius:12px;
       cursor:pointer;
       font-size:16px;
     }
+    button.secondary{
+      background:#e5e7eb;
+      color:#111827;
+    }
+    button:disabled{
+      opacity:0.5;
+      cursor:not-allowed;
+    }
     #result{
-      margin-top:20px;
-      background:white;
-      padding:20px;
-      border-radius:10px;
-      font-size:18px;
+      margin-top:22px;
+      background:#f8fafc;
+      border:1px solid #e5e7eb;
+      padding:18px;
+      border-radius:14px;
+      display:none;
+    }
+    #result h2{
+      margin-top:0;
+    }
+    .note{
+      margin-top:14px;
+      font-size:14px;
+      color:#6b7280;
+      line-height:1.6;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>MindLap Anxiety Self-Awareness Test (MSAT)</h1>
+    <p class="sub">
+      Rate each question based on how often you experienced it during the last 2 weeks:<br>
+      <strong>0 = Never</strong> &nbsp; <strong>1 = Sometimes</strong> &nbsp; <strong>2 = Often</strong> &nbsp; <strong>3 = Almost every day</strong>
+    </p>
 
-<h1>MindLap Anxiety Self-Awareness Test (MSAT)</h1>
+    <div class="score-box" id="progress">Answered 0 / 15</div>
 
-<p>Rate each question based on the last 2 weeks:</p>
+    <form id="testForm">
+      <div class="question"><p>1. Do you overthink even small situations?</p>
+        <select name="q1" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-<form id="testForm">
+      <div class="question"><p>2. Do you feel nervous or tense without a clear reason?</p>
+        <select name="q2" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-<div class="question">
-<p>1. Do you overthink even small situations?</p>
-<select name="q1">
-<option value="0">Never</option>
-<option value="1">Sometimes</option>
-<option value="2">Often</option>
-<option value="3">Almost every day</option>
-</select>
-</div>
+      <div class="question"><p>3. Do you experience a fast heartbeat, chest tightness, or restlessness?</p>
+        <select name="q3" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-<div class="question">
-<p>2. Do you feel nervous or tense without a clear reason?</p>
-<select name="q2">
-<option value="0">Never</option>
-<option value="1">Sometimes</option>
-<option value="2">Often</option>
-<option value="3">Almost every day</option>
-</select>
-</div>
+      <div class="question"><p>4. Do worst-case scenarios repeatedly come to your mind?</p>
+        <select name="q4" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-<div class="question">
-<p>3. Do you find it difficult to relax?</p>
-<select name="q3">
-<option value="0">Never</option>
-<option value="1">Sometimes</option>
-<option value="2">Often</option>
-<option value="3">Almost every day</option>
-</select>
-</div>
+      <div class="question"><p>5. Do you find it difficult to relax?</p>
+        <select name="q5" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-<button type="button" onclick="calculateResult()">
-Submit Test
-</button>
+      <div class="question"><p>6. Do you struggle with sleep because of excessive thinking or worry?</p>
+        <select name="q6" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-</form>
+      <div class="question"><p>7. Do social interactions make you feel nervous or uncomfortable?</p>
+        <select name="q7" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-<div id="result"></div>
+      <div class="question"><p>8. Do you find it hard to concentrate?</p>
+        <select name="q8" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-<script>
-function calculateResult() {
+      <div class="question"><p>9. Do you experience physical symptoms like sweating, shaking, or stomach discomfort during stress?</p>
+        <select name="q9" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-let total = 0;
+      <div class="question"><p>10. Do you constantly feel like something bad might happen?</p>
+        <select name="q10" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-for(let i=1; i<=15; i++){
-total += parseInt(document.forms["testForm"]["q"+i].value);
-}
+      <div class="question"><p>11. Do small mistakes feel like major failures?</p>
+        <select name="q11" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-let result = "";
+      <div class="question"><p>12. Have you started avoiding calls, people, work, or situations more than usual?</p>
+        <select name="q12" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-if(total <= 2){
-result = "Mild Awareness Zone";
-}
-else if(total <= 5){
-result = "Moderate Anxiety Signs";
-}
-else if(total <= 7){
-result = "High Anxiety Impact";
-}
-else{
-result = "Severe Distress Zone";
-}
+      <div class="question"><p>13. Do you feel mentally exhausted even after resting?</p>
+        <select name="q13" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-document.getElementById("result").innerHTML =
-"<h2>Your Score: "+total+"</h2><p>"+result+"</p>";
+      <div class="question"><p>14. Do you struggle to control your thoughts or worries?</p>
+        <select name="q14" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
-}
-</script>
+      <div class="question"><p>15. Is anxiety affecting your daily routine or productivity?</p>
+        <select name="q15" onchange="updateProgress()">
+          <option value="">Select</option>
+          <option value="0">0 - Never</option>
+          <option value="1">1 - Sometimes</option>
+          <option value="2">2 - Often</option>
+          <option value="3">3 - Almost every day</option>
+        </select>
+      </div>
 
+      <div class="buttons">
+        <button type="button" onclick="calculateResult()" id="submitBtn" disabled>Submit Test</button>
+        <button type="button" class="secondary" onclick="resetForm()">Reset</button>
+      </div>
+    </form>
+
+    <div id="result"></div>
+
+    <div class="note">
+      This test is for self-awareness only and is not a diagnosis. If anxiety is affecting daily life, speaking with a qualified mental health professional is recommended.
+    </div>
+  </div>
+
+  <script>
+    function updateProgress() {
+      let answered = 0;
+      for (let i = 1; i <= 15; i++) {
+        const value = document.forms["testForm"]["q" + i].value;
+        if (value !== "") answered++;
+      }
+      document.getElementById("progress").innerText = `Answered ${answered} / 15`;
+      document.getElementById("submitBtn").disabled = answered !== 15;
+    }
+
+    function calculateResult() {
+      let total = 0;
+
+      for (let i = 1; i <= 15; i++) {
+        total += parseInt(document.forms["testForm"]["q" + i].value);
+      }
+
+      let title = "";
+      let text = "";
+
+      if (total <= 10) {
+        title = "Mild Awareness Zone";
+        text = "You may be experiencing normal stress levels rather than significant anxiety. Improving sleep, routine, and stress management may help.";
+      } else if (total <= 25) {
+        title = "Moderate Anxiety Signs";
+        text = "You may be developing noticeable anxiety patterns. Emotional regulation, grounding techniques, and lifestyle adjustments could be helpful.";
+      } else if (total <= 35) {
+        title = "High Anxiety Impact";
+        text = "Anxiety may be significantly affecting your emotions, body, focus, or routine. Seeking professional support could be beneficial.";
+      } else {
+        title = "Severe Distress Zone";
+        text = "Anxiety may be strongly impacting your daily functioning, sleep, relationships, or concentration. Speaking with a qualified mental health professional is strongly recommended.";
+      }
+
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result").innerHTML =
+        "<h2>Your Score: " + total + "/45</h2>" +
+        "<h3>" + title + "</h3>" +
+        "<p>" + text + "</p>";
+    }
+
+    function resetForm() {
+      document.getElementById("testForm").reset();
+      document.getElementById("result").style.display = "none";
+      document.getElementById("result").innerHTML = "";
+      document.getElementById("progress").innerText = "Answered 0 / 15";
+      document.getElementById("submitBtn").disabled = true;
+    }
+  </script>
 </body>
 </html>
