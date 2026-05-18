@@ -579,16 +579,8 @@
     }
 
     function buildWhatsAppMessage(payload) {
-      return [
-        "Hello, I attended your anxiety test and I would like to talk about it.",
-        `Name: ${payload.fullname}`,
-        `Phone: ${payload.phone}`,
-        `Age: ${payload.age}`,
-        `Score: ${payload.score}/45`,
-        `Result: ${payload.result}`,
-        `Time: ${new Date(payload.timestamp).toLocaleString()}`
-      ].join("\n");
-    }
+  return "Hello, I attended your anxiety test and I would like to talk about it.";
+}
 
     function saveLocally(payload) {
       const existing = JSON.parse(localStorage.getItem(saveKey) || "[]");
