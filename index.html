@@ -55,16 +55,20 @@
       margin-bottom:14px;
     }
 
-    .brand-text{
-      font-size:20px;
-      font-weight:800;
+    .brand-badge{
+      width:64px;
+      height:64px;
+      border-radius:18px;
+      background:#efe4ff;
+      border:2px solid #bda2ff;
+      color:#6d28d9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:18px;
       letter-spacing:.08em;
-      text-transform:uppercase;
-      color:#3b0764;
-      background:linear-gradient(135deg, #ffffff, #f5f3ff);
-      border:1px solid var(--line);
-      padding:10px 16px;
-      border-radius:999px;
+      box-shadow:0 10px 22px rgba(139,92,246,.12);
     }
 
     h1{
@@ -233,9 +237,10 @@
 
     .result .score{
       margin:0;
-      font-size:34px;
+      font-size:30px;
       font-weight:800;
       color:#4c1d95;
+      line-height:1.35;
     }
 
     .result .title{
@@ -286,7 +291,7 @@
     <div class="card">
       <div class="hero">
         <div class="brand">
-          <div class="brand-text">MindLap</div>
+          <div class="brand-badge">ML</div>
         </div>
 
         <h1>MindLap Anxiety Test</h1>
@@ -600,13 +605,13 @@
 
     function buildWhatsAppMessage(payload) {
       return [
-        "MindLap Anxiety Test",
+        "Hello, I attended your anxiety test and I would like to talk about it.",
         `Name: ${payload.fullname}`,
         `Phone: ${payload.phone}`,
         `Age: ${payload.age}`,
         `Score: ${payload.score}/45`,
         `Result: ${payload.result}`,
-        `Timestamp: ${new Date(payload.timestamp).toLocaleString()}`
+        `Time: ${new Date(payload.timestamp).toLocaleString()}`
       ].join("\n");
     }
 
@@ -634,7 +639,7 @@
     let whatsappDataMessage = "";
 
     function openWhatsApp() {
-      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDataMessage || "MindLap Anxiety Test")}`;
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDataMessage || "Hello, I attended your anxiety test and I would like to talk about it.")}`;
       window.open(url, "_blank");
     }
 
@@ -665,7 +670,7 @@
       saveLocally(payload);
       await sendToSheet(payload);
 
-      scoreText.textContent = `Your Score: ${score}/45`;
+      scoreText.textContent = `Hey ${payload.fullname}, your score is ${score}/45`;
       resultTitle.textContent = result.title;
       resultDesc.textContent = result.text;
       whatsappDataMessage = buildWhatsAppMessage(payload);
