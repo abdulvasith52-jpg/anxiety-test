@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anxiety Self-Awareness Test</title>
+  <style>
+    body{
+      font-family: Arial;
+      background:#f4f4f4;
+      padding:20px;
+      max-width:800px;
+      margin:auto;
+    }
+    .question{
+      background:white;
+      padding:15px;
+      margin-bottom:15px;
+      border-radius:10px;
+    }
+    button{
+      background:black;
+      color:white;
+      padding:12px 20px;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:16px;
+    }
+    #result{
+      margin-top:20px;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      font-size:18px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Anxiety Self-Awareness Test</h1>
+
+<p>Rate each question based on the last 2 weeks:</p>
+
+<form id="testForm">
+
+<div class="question">
+<p>1. Do you overthink even small situations?</p>
+<select name="q1">
+<option value="0">Never</option>
+<option value="1">Sometimes</option>
+<option value="2">Often</option>
+<option value="3">Almost every day</option>
+</select>
+</div>
+
+<div class="question">
+<p>2. Do you feel nervous or tense without a clear reason?</p>
+<select name="q2">
+<option value="0">Never</option>
+<option value="1">Sometimes</option>
+<option value="2">Often</option>
+<option value="3">Almost every day</option>
+</select>
+</div>
+
+<div class="question">
+<p>3. Do you find it difficult to relax?</p>
+<select name="q3">
+<option value="0">Never</option>
+<option value="1">Sometimes</option>
+<option value="2">Often</option>
+<option value="3">Almost every day</option>
+</select>
+</div>
+
+<button type="button" onclick="calculateResult()">
+Submit Test
+</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function calculateResult() {
+
+let total = 0;
+
+for(let i=1; i<=3; i++){
+total += parseInt(document.forms["testForm"]["q"+i].value);
+}
+
+let result = "";
+
+if(total <= 2){
+result = "Mild Awareness Zone";
+}
+else if(total <= 5){
+result = "Moderate Anxiety Signs";
+}
+else if(total <= 7){
+result = "High Anxiety Impact";
+}
+else{
+result = "Severe Distress Zone";
+}
+
+document.getElementById("result").innerHTML =
+"<h2>Your Score: "+total+"</h2><p>"+result+"</p>";
+
+}
+</script>
+
+</body>
+</html>
