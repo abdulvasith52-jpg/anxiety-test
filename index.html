@@ -1,3 +1,3390 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+where the add file?
+
+create a new space is clicked what next,
+
+where it is, i can't see that
+
+this is the window shown
+
+now we are here
+
+here we can just click commit changes , right?
+
+what to do more here?
+
+
+Pasted text(4).txt
+Document
+THIS WAS THE CODE?
+
+THAT MEANS WE ARE GOING TO REMOVE THIS ALL CODES AND REPLACE WITH THE CODE YOU GIVE RIGHT?
+
+this is our logo and purple and white is our theme
+
+what next?
+
+clicking next right?
+
+\
+
+
+image(86).png
+which one?
+
+image(87).png
+where is pages?
+
+what next\
+
+
+Pasted text(5).txt
+Document
+i used this code but whatsapp msg is automated with result text, how to remove
+
+why the logo like this?
+
+it's like MindLap why we wrote fully 
+
+Please beautify this
+
+image(92).png
+BUT IT'S LIKE THIS HOW TO REMOVE THAT LAST ONE
+
+image(93).png
+IS THIS?
+
+image(94).png
+CORRECT?
+
+image(95).png
+HOW TO CREATE NEW REPOSITORY
+
+image(96).png
+WHEN I CLICK CRATE NEW FILE NOTHING IS OPEN
+
+image(97).png
+NO CHANGES, WHEN CLICK NEW, SAME PAGE IS OPEN AGAIN
+
+image(98).png
+BRO PLEASE UNDERSTAND THIS IS THE WINDOW WHEN I CLICK THE LINK LAST YOU GIVE, IS THERE ANYTHINGG TO NEED WITH UPLOADING AN EXISTING FILE?
+
+image(99).png
+HERE IAM ON THIS TAB
+
+image(100).png
+IM HERE NOW, WHAT NEXT
+
+image(101).png
+
+image(102).png
+I CAN'T SEE THE DEPRESSION TEST
+
+image(103).png
+
+image(104).png
+OK NICE 
+
+BUT WHERE IS OUR SELECTED BACKROUND THEME,
+
+AND IS THIS DATA ALSO STORED TO SAME GSHEET?
+
+Thought for 12s
+Yes — the data is going to the same Google Sheet because the depression page is still posting to the same Apps Script URL in your code. The fetch("https://script.google.com/macros/s/.../exec") part is the same pattern, so it will append into the same sheet as long as that script still writes to the same spreadsheet.
+
+About the background: it is already there, but it is very subtle. In your current code, the page background is a soft white-to-lavender gradient, so it will look light and calm rather than bold. If you want, I can give you a stronger “peaceful purple glow” background version that will be much more visible on the page.
+
+
+image(105).png
+WE WANT LOOK AND FEEL LIKE THIS
+
+Thought for 5s
+Yes — that look is a purple-magenta neon glassmorphism style.
+
+Use this on your page and it will feel much closer:
+
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 24px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 64, 170, 0.35) 0%, transparent 22%),
+    radial-gradient(circle at 50% 35%, rgba(126, 34, 206, 0.35) 0%, transparent 26%),
+    radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.30) 0%, transparent 20%),
+    radial-gradient(circle at 20% 85%, rgba(109, 40, 217, 0.28) 0%, transparent 24%),
+    linear-gradient(135deg, #12051f 0%, #2a0f4d 38%, #7c1fa1 72%, #b3128a 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before,
+body::after{
+  content: "";
+  position: fixed;
+  inset: auto;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before{
+  width: 340px;
+  height: 340px;
+  left: -90px;
+  bottom: -90px;
+  background: rgba(255, 61, 177, 0.28);
+}
+
+body::after{
+  width: 280px;
+  height: 280px;
+  right: -70px;
+  top: 70px;
+  background: rgba(120, 80, 255, 0.28);
+}
+
+.container{
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: auto;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 28px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.logo{
+  text-align: center;
+  font-size: 44px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.logo .mind{
+  color: #ffffff;
+}
+
+.logo .lap{
+  color: #c084fc;
+}
+
+h1{
+  text-align: center;
+  color: #ffffff;
+  margin: 0 0 10px;
+  font-size: 34px;
+}
+
+.subtitle{
+  text-align: center;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 28px;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.field,
+.question,
+.result{
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.field{
+  margin-bottom: 18px;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+label,
+.question p{
+  color: #ffffff;
+}
+
+input,
+select{
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 15px;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.92);
+  color: #111;
+}
+
+.question{
+  padding: 18px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  transition: 0.2s;
+}
+
+.question:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(255,255,255,0.10);
+}
+
+button{
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff4fc3, #8b5cf6);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 12px 30px rgba(139,92,246,0.35);
+  transition: 0.2s;
+}
+
+button:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.result{
+  display: none;
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 24px;
+}
+
+.result h2{
+  color: #ffffff;
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+.result h3,
+.result p{
+  color: rgba(255,255,255,0.90);
+}
+
+.whatsapp-btn{
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  margin-top: 15px;
+}
+
+.notice{
+  margin-top: 25px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.6;
+  background: rgba(255,255,255,0.08);
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+This gives you:
+
+dark purple / pink background
+
+soft glowing circles
+
+glass effect cards
+
+premium app feel
+
+a look close to the reference image
+
+If you want, I can give you the full final depression code with this exact background already built in.
+
+
+image(106).png
+SOME THING IS WRONG, GIVE THE FULL CORRECT CODE WITH CHANGES, TO PASTE PLS
+
+Thought for 46s
+Replace the entire file with this version. It fixes the background, keeps the country code selector, uses the Depression assessment, and preserves the same Google Sheet and WhatsApp flow.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindLap Depression Test</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    html, body{
+      margin:0;
+      min-height:100%;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      padding:24px;
+      color:#fff;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 64, 170, 0.35) 0%, transparent 22%),
+        radial-gradient(circle at 50% 35%, rgba(126, 34, 206, 0.35) 0%, transparent 26%),
+        radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.30) 0%, transparent 20%),
+        radial-gradient(circle at 20% 85%, rgba(109, 40, 217, 0.28) 0%, transparent 24%),
+        linear-gradient(135deg, #12051f 0%, #2a0f4d 38%, #7c1fa1 72%, #b3128a 100%);
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    body::before,
+    body::after{
+      content:"";
+      position:fixed;
+      border-radius:50%;
+      filter:blur(70px);
+      opacity:0.55;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    body::before{
+      width:340px;
+      height:340px;
+      left:-100px;
+      bottom:-100px;
+      background:rgba(255, 61, 177, 0.28);
+    }
+
+    body::after{
+      width:280px;
+      height:280px;
+      right:-70px;
+      top:70px;
+      background:rgba(120, 80, 255, 0.28);
+    }
+
+    .container{
+      position:relative;
+      z-index:1;
+      max-width:860px;
+      margin:auto;
+      padding:28px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    .logo{
+      text-align:center;
+      font-size:44px;
+      font-weight:900;
+      margin-bottom:10px;
+      letter-spacing:-2px;
+      line-height:1;
+    }
+
+    .logo .mind{
+      color:#ffffff;
+    }
+
+    .logo .lap{
+      color:#c084fc;
+    }
+
+    h1{
+      text-align:center;
+      color:#ffffff;
+      margin:0 0 10px;
+      font-size:34px;
+    }
+
+    .subtitle{
+      text-align:center;
+      color:rgba(255,255,255,0.78);
+      margin-bottom:28px;
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .field,
+    .question,
+    .result{
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.14);
+      box-shadow:0 10px 30px rgba(0,0,0,0.18);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+    }
+
+    .field{
+      margin-bottom:18px;
+      border-radius:20px;
+      padding:14px;
+    }
+
+    label,
+    .question p{
+      color:#ffffff;
+    }
+
+    label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:bold;
+      color:#ffffff;
+    }
+
+    input,
+    select{
+      width:100%;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.18);
+      font-size:15px;
+      background:rgba(255,255,255,0.95);
+      color:#111111;
+      outline:none;
+    }
+
+    input:focus,
+    select:focus,
+    button:focus{
+      outline:2px solid rgba(255,255,255,0.35);
+      outline-offset:2px;
+    }
+
+    .question{
+      padding:18px;
+      border-radius:20px;
+      margin-bottom:15px;
+      transition:0.2s;
+    }
+
+    .question:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 34px rgba(255,255,255,0.10);
+    }
+
+    .question p{
+      margin-top:0;
+      font-weight:bold;
+      line-height:1.5;
+      margin-bottom:12px;
+    }
+
+    button{
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:16px;
+      background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      margin-top:10px;
+      transition:0.2s;
+      box-shadow:0 12px 30px rgba(139,92,246,0.35);
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+      opacity:0.95;
+    }
+
+    .result{
+      display:none;
+      margin-top:25px;
+      padding:25px;
+      border-radius:24px;
+    }
+
+    .result h2{
+      color:#ffffff;
+      margin-top:0;
+      line-height:1.4;
+    }
+
+    .result h3,
+    .result p{
+      color:rgba(255,255,255,0.92);
+    }
+
+    .whatsapp-btn{
+      background:linear-gradient(135deg,#25D366,#1ebe5d);
+      margin-top:15px;
+      box-shadow:none;
+    }
+
+    .notice{
+      margin-top:25px;
+      font-size:14px;
+      color:rgba(255,255,255,0.75);
+      line-height:1.6;
+      background:rgba(255,255,255,0.08);
+      padding:15px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.12);
+    }
+
+    .iti{
+      width:100%;
+    }
+
+    .iti__country-list{
+      color:#111111;
+    }
+
+    @media(max-width:768px){
+      .container{
+        padding:18px;
+      }
+
+      .logo{
+        font-size:34px;
+      }
+
+      h1{
+        font-size:26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <span class="mind">Mind</span><span class="lap">Lap</span>
+  </div>
+
+  <h1>Depression Self-Awareness Test</h1>
+
+  <div class="subtitle">
+    A simple emotional wellbeing self-awareness screening tool.<br>
+    Answer based on your experiences during the last 2 weeks.
+  </div>
+
+  <div class="field">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" placeholder="Enter full name">
+  </div>
+
+  <div class="field">
+    <label for="phone">Phone Number</label>
+    <input id="phone" type="tel" placeholder="Enter phone number" />
+  </div>
+
+  <div class="field">
+    <label for="age">Age</label>
+    <input type="number" id="age" placeholder="Enter age">
+  </div>
+
+  <form id="testForm"></form>
+
+  <button type="button" id="submitBtn">Submit Test</button>
+
+  <div class="result" id="resultBox">
+    <h2 id="scoreText"></h2>
+    <h3 id="resultTitle"></h3>
+    <p id="resultDesc"></p>
+
+    <button type="button" class="whatsapp-btn" id="whatsappBtn">
+      Connect with us
+    </button>
+  </div>
+
+  <div class="notice">
+    This test is for self-awareness purposes only and not a medical diagnosis.
+    If emotional difficulties are affecting your daily life, consider speaking with a qualified mental health professional.
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
+<script>
+  const questions = [
+    "Do you often feel emotionally low or empty without a clear reason?",
+    "Have you lost interest in activities you previously enjoyed?",
+    "Do you feel mentally exhausted even after resting?",
+    "Do you struggle to feel motivated for daily tasks?",
+    "Do you often feel hopeless about the future?",
+    "Have your sleep patterns changed significantly recently?",
+    "Do you isolate yourself from friends, family, or social situations?",
+    "Do small tasks feel unusually overwhelming?",
+    "Do you frequently feel worthless or like a burden?",
+    "Have you noticed changes in your appetite or eating habits?",
+    "Do you find it difficult to concentrate or make decisions?",
+    "Do you feel emotionally numb or disconnected from people around you?",
+    "Have you been feeling unusually irritable, frustrated, or emotionally sensitive?",
+    "Do you often feel like life has become repetitive or meaningless?",
+    "Is your emotional state affecting your productivity, relationships, or daily routine?"
+  ];
+
+  const form = document.getElementById("testForm");
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `
+      <p>${index + 1}. ${q}</p>
+      <select id="q${index + 1}">
+        <option value="">Select answer</option>
+        <option value="0">Never</option>
+        <option value="1">Sometimes</option>
+        <option value="2">Often</option>
+        <option value="3">Almost every day</option>
+      </select>
+    `;
+    form.appendChild(div);
+  });
+
+  const phoneInput = document.querySelector("#phone");
+
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "in",
+    separateDialCode: true,
+    preferredCountries: ["in", "ae", "qa", "sa", "kw", "us", "gb"],
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+  });
+
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec";
+
+  let whatsappMessage = "Hello, I attended your depression test and I would like to talk about it.";
+
+  function getResult(total) {
+    if (total <= 10) {
+      return {
+        title: "Mild Emotional Strain",
+        desc: "You may be experiencing temporary emotional stress or low mood."
+      };
+    } else if (total <= 25) {
+      return {
+        title: "Moderate Emotional Difficulty",
+        desc: "You may be developing noticeable emotional struggles that could affect your routine and motivation."
+      } else if (total <= 35) {
+        return {
+          title: "High Emotional Impact",
+          desc: "Your emotional wellbeing may be significantly affected. Professional support could be beneficial."
+        };
+      } else {
+        return {
+          title: "Severe Distress Zone",
+          desc: "Your emotional state may be strongly affecting your daily functioning and wellbeing."
+        };
+      }
+    }
+  }
+
+  async function submitTest() {
+    const fullname = document.getElementById("fullname").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const phone = iti.getNumber();
+
+    if (!fullname || !phone || !age) {
+      alert("Please fill all details");
+      return;
+    }
+
+    let total = 0;
+
+    for (let i = 1; i <= 15; i++) {
+      const val = document.getElementById(`q${i}`).value;
+      if (val === "") {
+        alert("Please answer all questions");
+        return;
+      }
+      total += Number(val);
+    }
+
+    const result = getResult(total);
+
+    document.getElementById("scoreText").innerText = `Hey ${fullname}, your score is ${total}/45`;
+    document.getElementById("resultTitle").innerText = result.title;
+    document.getElementById("resultDesc").innerText = result.desc;
+    document.getElementById("resultBox").style.display = "block";
+
+    await fetch(SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        fullname,
+        phone,
+        age,
+        score: total,
+        result: result.title,
+        type: "Depression Test"
+      })
+    });
+
+    document.getElementById("resultBox").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+  function openWhatsApp() {
+    const url = `https://wa.me/918590991552?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, "_blank");
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", submitTest);
+  document.getElementById("whatsappBtn").addEventListener("click", openWhatsApp);
+</script>
+
+</body>
+</html>
+If the page still looks off after this, the next thing to check is whether the old index.html was fully replaced or whether part of the earlier CSS stayed below this new code.
+
+
+image(107).png
+WHERE IS THE QUESTIONS BRO, I NEED ALL DETAILS WHAT WE DO ON ANXIETY ASSESMENT, JUST CHANGE THE BACKROUND, 
+
+SO I NEED ALL THINGS WE DO ON ANXIETY
+
+Thought for 4s
+Yes — you need the full anxiety assessment again, and only the background style should change.
+
+Replace your entire index.html with this. It keeps everything from the anxiety assessment:
+
+15 questions
+
+name / phone / age
+
+country code dropdown
+
+Google Sheet saving
+
+score result
+
+“Connect with us” button
+
+only the first WhatsApp text
+
+new purple/pink peaceful background
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindLap Anxiety Test</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 64, 170, 0.35) 0%, transparent 22%),
+        radial-gradient(circle at 50% 35%, rgba(126, 34, 206, 0.35) 0%, transparent 26%),
+        radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.30) 0%, transparent 20%),
+        radial-gradient(circle at 20% 85%, rgba(109, 40, 217, 0.28) 0%, transparent 24%),
+        linear-gradient(135deg, #12051f 0%, #2a0f4d 38%, #7c1fa1 72%, #b3128a 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 340px;
+      height: 340px;
+      left: -100px;
+      bottom: -100px;
+      background: rgba(255, 61, 177, 0.28);
+    }
+
+    body::after {
+      width: 280px;
+      height: 280px;
+      right: -70px;
+      top: 70px;
+      background: rgba(120, 80, 255, 0.28);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: auto;
+      padding: 28px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 44px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .logo .mind {
+      color: #ffffff;
+    }
+
+    .logo .lap {
+      color: #c084fc;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      margin: 0 0 10px;
+      font-size: 34px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 28px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .field,
+    .question,
+    .result {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .field {
+      margin-bottom: 18px;
+      border-radius: 20px;
+      padding: 14px;
+    }
+
+    label,
+    .question p {
+      color: #ffffff;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 15px;
+      background: rgba(255,255,255,0.95);
+      color: #111111;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    button:focus {
+      outline: 2px solid rgba(255,255,255,0.35);
+      outline-offset: 2px;
+    }
+
+    .question {
+      padding: 18px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      transition: 0.2s;
+    }
+
+    .question:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(255,255,255,0.10);
+    }
+
+    .question p {
+      margin-top: 0;
+      font-weight: bold;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+      box-shadow: 0 12px 30px rgba(139,92,246,0.35);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 24px;
+    }
+
+    .result h2 {
+      color: #ffffff;
+      margin-top: 0;
+      line-height: 1.4;
+    }
+
+    .result h3,
+    .result p {
+      color: rgba(255,255,255,0.92);
+    }
+
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+      margin-top: 15px;
+      box-shadow: none;
+    }
+
+    .notice {
+      margin-top: 25px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      background: rgba(255,255,255,0.08);
+      padding: 15px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .iti {
+      width: 100%;
+    }
+
+    .iti__country-list {
+      color: #111111;
+    }
+
+    @media(max-width:768px) {
+      .container {
+        padding: 18px;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <span class="mind">Mind</span><span class="lap">Lap</span>
+  </div>
+
+  <h1>Anxiety Self-Awareness Test</h1>
+
+  <div class="subtitle">
+    A simple emotional wellbeing self-awareness screening tool.<br>
+    Answer based on your experiences during the last 2 weeks.
+  </div>
+
+  <div class="field">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" placeholder="Enter full name">
+  </div>
+
+  <div class="field">
+    <label for="phone">Phone Number</label>
+    <input id="phone" type="tel" placeholder="Enter phone number" />
+  </div>
+
+  <div class="field">
+    <label for="age">Age</label>
+    <input type="number" id="age" placeholder="Enter age">
+  </div>
+
+  <form id="testForm"></form>
+
+  <button type="button" id="submitBtn">Submit Test</button>
+
+  <div class="result" id="resultBox">
+    <h2 id="scoreText"></h2>
+    <h3 id="resultTitle"></h3>
+    <p id="resultDesc"></p>
+
+    <button type="button" class="whatsapp-btn" id="whatsappBtn">
+      Connect with us
+    </button>
+  </div>
+
+  <div class="notice">
+    This test is for self-awareness purposes only and not a medical diagnosis.
+    If anxiety is affecting your daily life, consider speaking with a qualified mental health professional.
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
+<script>
+  const questions = [
+    "Do you overthink even small situations?",
+    "Do you feel nervous or tense without a clear reason?",
+    "Do you experience a fast heartbeat, chest tightness, or restlessness?",
+    "Do worst-case scenarios repeatedly come to your mind?",
+    "Do you find it difficult to relax?",
+    "Do you struggle with sleep because of excessive thinking or worry?",
+    "Do social interactions make you feel nervous or uncomfortable?",
+    "Do you find it hard to concentrate?",
+    "Do you experience physical symptoms like sweating, shaking, or stomach discomfort during stress?",
+    "Do you constantly feel like something bad might happen?",
+    "Do small mistakes feel like major failures?",
+    "Have you started avoiding calls, people, work, or situations more than usual?",
+    "Do you feel mentally exhausted even after resting?",
+    "Do you struggle to control your thoughts or worries?",
+    "Is anxiety affecting your daily routine or productivity?"
+  ];
+
+  const form = document.getElementById("testForm");
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `
+      <p>${index + 1}. ${q}</p>
+      <select id="q${index + 1}">
+        <option value="">Select answer</option>
+        <option value="0">Never</option>
+        <option value="1">Sometimes</option>
+        <option value="2">Often</option>
+        <option value="3">Almost every day</option>
+      </select>
+    `;
+    form.appendChild(div);
+  });
+
+  const phoneInput = document.querySelector("#phone");
+
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "in",
+    separateDialCode: true,
+    preferredCountries: ["in", "ae", "qa", "sa", "kw", "us", "gb"],
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+  });
+
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec";
+
+  let whatsappMessage = "Hello, I attended your anxiety test and I would like to talk about it.";
+
+  function getResult(total) {
+    if (total <= 10) {
+      return {
+        title: "Mild Awareness Zone",
+        desc: "You may be experiencing normal stress levels rather than significant anxiety. Improving sleep, routine, and stress management may help."
+      };
+    } else if (total <= 25) {
+      return {
+        title: "Moderate Anxiety Signs",
+        desc: "You may be developing noticeable anxiety patterns. Emotional regulation, grounding techniques, and lifestyle adjustments could be helpful."
+      };
+    } else if (total <= 35) {
+      return {
+        title: "High Anxiety Impact",
+        desc: "Anxiety may be significantly affecting your emotions, body, focus, or routine. Seeking professional support could be beneficial."
+      };
+    } else {
+      return {
+        title: "Severe Distress Zone",
+        desc: "Anxiety may be strongly impacting your daily functioning, sleep, relationships, or concentration. Speaking with a qualified mental health professional is strongly recommended."
+      };
+    }
+  }
+
+  async function submitTest() {
+    const fullname = document.getElementById("fullname").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const phone = iti.getNumber();
+
+    if (!fullname || !phone || !age) {
+      alert("Please fill all details");
+      return;
+    }
+
+    let total = 0;
+
+    for (let i = 1; i <= 15; i++) {
+      const val = document.getElementById(`q${i}`).value;
+      if (val === "") {
+        alert("Please answer all questions");
+        return;
+      }
+      total += Number(val);
+    }
+
+    const result = getResult(total);
+
+    document.getElementById("scoreText").innerText = `Hey ${fullname}, your score is ${total}/45`;
+    document.getElementById("resultTitle").innerText = result.title;
+    document.getElementById("resultDesc").innerText = result.desc;
+    document.getElementById("resultBox").style.display = "block";
+
+    await fetch(SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        fullname,
+        phone,
+        age,
+        score: total,
+        result: result.title,
+        type: "Anxiety Test"
+      })
+    });
+
+    document.getElementById("resultBox").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+  function openWhatsApp() {
+    const url = `https://wa.me/918590991552?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, "_blank");
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", submitTest);
+  document.getElementById("whatsappBtn").addEventListener("click", openWhatsApp);
+</script>
+
+</body>
+</html>
+If you paste this exact file, your anxiety assessment will come back with the new background and all questions.
+
+
+നിസ്ക്രിയര്ജ് റാജിൻഗിരീ അതായത് ഈ ഇപ്പോൾ എന്ത് ചെയ്ത് ക്വസ്റ്റിയൻ ജസ്റ്റ് ചീ ക്വസ്റ്റിയന് പൈം ആന്സൈറ്റിയുടെ ക്വസ്റ്റിയനും അതിന്റെ ആന്സൈറ്റിയുടെ ഹെഡിങ്ങും കാര്യങ്ങളൊക്കിയോ എനിക്ക് വേണ്ടത് ആന്സൈറ്റിയിൽ നമ്മൾ ഉപയോഗിച്ച എല്ലാ ടൂള്സും അതായത് ലൈക്ക് എല്ലാ കാര്യങ്ങളും അതെപോലാണ് അതെ ആണാ കാര്യങ്ങളൊക്കുവാണ് ലൈക്ക് ഫോൺ നമ്പർ ആഡ് ചെയ്യാല്ലതാണെങ്കിലും മറ്റെല്ലാം സൈറ്റിയിലാണെല്ലാം അതാണെല്ലാം എന്നിട്ടോ മറ്റ് കൺട്രി കോഡുള്ളതാണെല്ലാം അങ്ങനെ എല്ലാ കാര്യങ്ങളും വേണം അതിന്റെ ഓൾസോ നമുക്ക് ഡിപ്രഷൻൻ്റെ ക്വസ്റ്റിയൻസും ഡിപ്രഷൻൻഡ് ഹെഡിങ്ങുകളൊത്തും ചേഞ്ച് ആവണം എനിക്ക് തോന്നുന്നത് ആൻസൈറ്റിയുടെ ക്വസ്റ്റിയനും ആൻസൈറ്റിയുടെ ഹെഡിങ്ങ് തന്നെയാണ് ഇത് തന്നതെന്ന് തോന്നുന്നു ഞാൻ പേസെയ്യിയതല്ല രണ്ടാമത്തെ കാര്യം എന്ന് പറയണത് ജസ്റ്റ് നമുക്ക് എന്ത് ചെയ്യണം ആ ബാക്ക്ഗ്രൗണ്ടൊന്നും ചേഞ്ച് ചെയ്തിട്ട് പുതിയ ബാക്ക്ഗ്രൗണ്ട് നമ്മൾ ഇപ്പോൾ സെറ്റ് ചെയ്ത ബാക്ക്ഗ്രൗണ്ടുണ്ടല്ലോ അതിലോട്ട് മാറണം അങ്ങനെയാണ് വേണ്ടത് ഒരു ഫുൾ കോഡ് തരൂ പ്ലീസ്
+
+Thought for 11s
+ഇതാണ് മുഴുവൻ ഫയൽ. പഴയ index.html മുഴുവൻ delete ചെയ്ത് ഇതേ paste ചെയ്യുക.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindLap Depression Test</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 64, 170, 0.35) 0%, transparent 22%),
+        radial-gradient(circle at 50% 35%, rgba(126, 34, 206, 0.35) 0%, transparent 26%),
+        radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.30) 0%, transparent 20%),
+        radial-gradient(circle at 20% 85%, rgba(109, 40, 217, 0.28) 0%, transparent 24%),
+        linear-gradient(135deg, #12051f 0%, #2a0f4d 38%, #7c1fa1 72%, #b3128a 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 340px;
+      height: 340px;
+      left: -100px;
+      bottom: -100px;
+      background: rgba(255, 61, 177, 0.28);
+    }
+
+    body::after {
+      width: 280px;
+      height: 280px;
+      right: -70px;
+      top: 70px;
+      background: rgba(120, 80, 255, 0.28);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: auto;
+      padding: 28px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 44px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .logo .mind {
+      color: #ffffff;
+    }
+
+    .logo .lap {
+      color: #c084fc;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      margin: 0 0 10px;
+      font-size: 34px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 28px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .field,
+    .question,
+    .result {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .field {
+      margin-bottom: 18px;
+      border-radius: 20px;
+      padding: 14px;
+    }
+
+    label,
+    .question p {
+      color: #ffffff;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 15px;
+      background: rgba(255,255,255,0.95);
+      color: #111111;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    button:focus {
+      outline: 2px solid rgba(255,255,255,0.35);
+      outline-offset: 2px;
+    }
+
+    .question {
+      padding: 18px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      transition: 0.2s;
+    }
+
+    .question:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(255,255,255,0.10);
+    }
+
+    .question p {
+      margin-top: 0;
+      font-weight: bold;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+      box-shadow: 0 12px 30px rgba(139,92,246,0.35);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 24px;
+    }
+
+    .result h2 {
+      color: #ffffff;
+      margin-top: 0;
+      line-height: 1.4;
+    }
+
+    .result h3,
+    .result p {
+      color: rgba(255,255,255,0.92);
+    }
+
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+      margin-top: 15px;
+      box-shadow: none;
+    }
+
+    .notice {
+      margin-top: 25px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      background: rgba(255,255,255,0.08);
+      padding: 15px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .iti {
+      width: 100%;
+    }
+
+    .iti__country-list {
+      color: #111111;
+    }
+
+    @media(max-width:768px) {
+      .container {
+        padding: 18px;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <span class="mind">Mind</span><span class="lap">Lap</span>
+  </div>
+
+  <h1>Depression Self-Awareness Test</h1>
+
+  <div class="subtitle">
+    A simple emotional wellbeing self-awareness screening tool.<br>
+    Answer based on your experiences during the last 2 weeks.
+  </div>
+
+  <div class="field">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" placeholder="Enter full name">
+  </div>
+
+  <div class="field">
+    <label for="phone">Phone Number</label>
+    <input id="phone" type="tel" placeholder="Enter phone number" />
+  </div>
+
+  <div class="field">
+    <label for="age">Age</label>
+    <input type="number" id="age" placeholder="Enter age">
+  </div>
+
+  <form id="testForm"></form>
+
+  <button type="button" id="submitBtn">Submit Test</button>
+
+  <div class="result" id="resultBox">
+    <h2 id="scoreText"></h2>
+    <h3 id="resultTitle"></h3>
+    <p id="resultDesc"></p>
+
+    <button type="button" class="whatsapp-btn" id="whatsappBtn">
+      Connect with us
+    </button>
+  </div>
+
+  <div class="notice">
+    This test is for self-awareness purposes only and not a medical diagnosis.
+    If emotional difficulties are affecting your daily life, consider speaking with a qualified mental health professional.
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
+<script>
+  const questions = [
+    "Do you often feel emotionally low or empty without a clear reason?",
+    "Have you lost interest in activities you previously enjoyed?",
+    "Do you feel mentally exhausted even after resting?",
+    "Do you struggle to feel motivated for daily tasks?",
+    "Do you often feel hopeless about the future?",
+    "Have your sleep patterns changed significantly recently?",
+    "Do you isolate yourself from friends, family, or social situations?",
+    "Do small tasks feel unusually overwhelming?",
+    "Do you frequently feel worthless or like a burden?",
+    "Have you noticed changes in your appetite or eating habits?",
+    "Do you find it difficult to concentrate or make decisions?",
+    "Do you feel emotionally numb or disconnected from people around you?",
+    "Have you been feeling unusually irritable, frustrated, or emotionally sensitive?",
+    "Do you often feel like life has become repetitive or meaningless?",
+    "Is your emotional state affecting your productivity, relationships, or daily routine?"
+  ];
+
+  const form = document.getElementById("testForm");
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `
+      <p>${index + 1}. ${q}</p>
+      <select id="q${index + 1}">
+        <option value="">Select answer</option>
+        <option value="0">Never</option>
+        <option value="1">Sometimes</option>
+        <option value="2">Often</option>
+        <option value="3">Almost every day</option>
+      </select>
+    `;
+    form.appendChild(div);
+  });
+
+  const phoneInput = document.querySelector("#phone");
+
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "in",
+    separateDialCode: true,
+    preferredCountries: ["in", "ae", "qa", "sa", "kw", "us", "gb"],
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+  });
+
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec";
+
+  let whatsappMessage = "Hello, I attended your depression test and I would like to talk about it.";
+
+  function getResult(total) {
+    if (total <= 10) {
+      return {
+        title: "Mild Emotional Strain",
+        desc: "You may be experiencing temporary emotional stress or low mood. Rest, support, and self-care may help."
+      };
+    } else if (total <= 25) {
+      return {
+        title: "Moderate Emotional Difficulty",
+        desc: "You may be developing noticeable emotional struggles that could affect your routine and motivation."
+      };
+    } else if (total <= 35) {
+      return {
+        title: "High Emotional Impact",
+        desc: "Your emotional wellbeing may be significantly affected. Professional support could be beneficial."
+      };
+    } else {
+      return {
+        title: "Severe Distress Zone",
+        desc: "Your emotional state may be strongly affecting your daily functioning and wellbeing. Speaking with a qualified mental health professional is strongly recommended."
+      };
+    }
+  }
+
+  async function submitTest() {
+    const fullname = document.getElementById("fullname").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const phone = iti.getNumber();
+
+    if (!fullname || !phone || !age) {
+      alert("Please fill all details");
+      return;
+    }
+
+    let total = 0;
+
+    for (let i = 1; i <= 15; i++) {
+      const val = document.getElementById(`q${i}`).value;
+      if (val === "") {
+        alert("Please answer all questions");
+        return;
+      }
+      total += Number(val);
+    }
+
+    const result = getResult(total);
+
+    document.getElementById("scoreText").innerText = `Hey ${fullname}, your score is ${total}/45`;
+    document.getElementById("resultTitle").innerText = result.title;
+    document.getElementById("resultDesc").innerText = result.desc;
+    document.getElementById("resultBox").style.display = "block";
+
+    await fetch(SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        fullname,
+        phone,
+        age,
+        score: total,
+        result: result.title,
+        type: "Depression Test"
+      })
+    });
+
+    document.getElementById("resultBox").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+  function openWhatsApp() {
+    const url = `https://wa.me/918590991552?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, "_blank");
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", submitTest);
+  document.getElementById("whatsappBtn").addEventListener("click", openWhatsApp);
+</script>
+
+</body>
+</html>
+ഇത് paste ചെയ്ത് commit ചെയ്താൽ, ഇപ്പോഴത്തെ background മാത്രം മാറി depression assessment മുഴുവൻ question set-ോടുകൂടെ വരും.
+
+
+image(108).png
+COUNTRY SLECTION AREA IS LIKE THIS
+
+Thought for 8s
+Yes — that part needs a small styling fix.
+
+Do this
+In your CSS, add this below the phone input styles:
+
+.iti{
+  width:100%;
+  position:relative;
+  z-index:20;
+}
+
+.iti input{
+  width:100% !important;
+  padding-left: 92px !important;
+  border-radius: 14px;
+}
+
+.iti__selected-flag{
+  border-radius: 14px 0 0 14px;
+}
+
+.iti__country-list{
+  z-index:99999 !important;
+  background:#ffffff !important;
+  color:#111111 !important;
+  border:1px solid #d8c6ff !important;
+  border-radius:16px !important;
+  box-shadow:0 12px 30px rgba(0,0,0,0.18) !important;
+  max-height:260px !important;
+}
+Also change the phone input HTML to this
+<div class="field">
+  <label for="phone">Phone Number</label>
+  <input id="phone" type="tel" placeholder="Enter phone number" />
+</div>
+Important
+If you already have any old custom country code dropdown in the code, remove it completely. Only keep the intl-tel-input input above.
+
+That will make the country picker:
+
+cleaner
+
+full width
+
+with proper dropdown styling
+
+no ugly overlap feel
+
+If you want, I can now give you the final corrected full depression code with this phone style already fixed inside it.
+
+
+DIDN'T GET THAT,
+
+WHAT I NEED EXACTLY DO GUIDE ME
+
+OK 😄
+ഇപ്പോൾ നിന്റെ issue simple ആണ്.
+
+Country dropdown overlap ആകുന്നു.
+അതിനെ fix ചെയ്യാൻ exact ആയി ഇത്ര മാത്രം ചെയ്യൂ.
+
+STEP 1
+GitHub ൽ index.html open ചെയ്യൂ.
+
+STEP 2
+<style> section കണ്ടെത്തൂ.
+
+അതിൽ താഴെ കാണുന്ന line കണ്ടെത്തൂ:
+
+.iti {
+  width: 100%;
+}
+STEP 3
+ആ മുഴുവൻ delete ചെയ്ത് ഇതു paste ചെയ്യൂ:
+
+.iti{
+  width:100%;
+  position:relative;
+  z-index:20;
+}
+
+.iti input{
+  width:100% !important;
+  padding-left:90px !important;
+  border-radius:14px;
+}
+
+.iti__selected-flag{
+  border-radius:14px 0 0 14px;
+}
+
+.iti__country-list{
+  z-index:99999 !important;
+  background:#ffffff !important;
+  color:#111111 !important;
+  border-radius:16px !important;
+  max-height:260px !important;
+  overflow-y:auto !important;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+STEP 4
+ഇപ്പോൾ താഴെ കാണുന്ന line കണ്ടെത്തൂ:
+
+.iti__country-list {
+  color: #111111;
+}
+അത് മുഴുവൻ delete ചെയ്യൂ.
+
+STEP 5
+Top right ൽ green color:
+
+Commit changes
+click ചെയ്യൂ.
+
+DONE ✅
+ഇപ്പോൾ:
+
+country dropdown clean ആവും
+
+overlap issue പോകും
+
+scrolling smooth ആവും
+
+proper mobile app look കിട്ടും
+
+
+image(109).png
+NOT CHANGED, GIVE A FULL CODE WITH CLEAR THIS ISSUE, TO REPLACE THE ENTIRE CODE AGAIN
+
+image(110).png
+AT NOW THERE IS NO MORE COUNTRIES TO SELECT, I NEED THAT SELECTION OPTION BRO,, AND LET'S CHANGE THEME TO MORE LIGHT ONE, LIKE MORE WHITE THEME IS RECOMENDED, NOT FULLY WHITE LIGHT PURPLE WHITE
+
+Thought for 5s
+Yes — use this full version. It keeps the country selector, makes the theme much lighter, and still keeps everything else from the assessment.
+
+Replace the entire index.html with this:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindLap Depression Test</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      color: #111;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(196, 181, 253, 0.45) 0%, transparent 24%),
+        radial-gradient(circle at 85% 15%, rgba(221, 214, 254, 0.55) 0%, transparent 22%),
+        radial-gradient(circle at 20% 85%, rgba(233, 213, 255, 0.45) 0%, transparent 24%),
+        linear-gradient(135deg, #ffffff 0%, #f7f2ff 48%, #efe4ff 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 300px;
+      height: 300px;
+      left: -90px;
+      bottom: -90px;
+      background: rgba(216, 180, 254, 0.60);
+    }
+
+    body::after {
+      width: 260px;
+      height: 260px;
+      right: -70px;
+      top: 60px;
+      background: rgba(196, 181, 253, 0.55);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: auto;
+      padding: 28px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.75);
+      box-shadow:
+        0 18px 55px rgba(139,92,246,0.14),
+        inset 0 1px 0 rgba(255,255,255,0.90);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 44px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .logo .mind {
+      color: #111111;
+    }
+
+    .logo .lap {
+      color: #8b5cf6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #6d28d9;
+      margin: 0 0 10px;
+      font-size: 34px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #5f5f72;
+      margin-bottom: 28px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .field,
+    .question,
+    .result {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(221, 214, 254, 0.95);
+      box-shadow: 0 10px 28px rgba(139,92,246,0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .field {
+      margin-bottom: 18px;
+      border-radius: 20px;
+      padding: 14px;
+      position: relative;
+    }
+
+    label,
+    .question p {
+      color: #2b1b52;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid #d8c6ff;
+      font-size: 15px;
+      background: #fff;
+      color: #111111;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    button:focus {
+      outline: 2px solid rgba(139,92,246,0.28);
+      outline-offset: 2px;
+    }
+
+    .question {
+      padding: 18px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      transition: 0.2s;
+    }
+
+    .question:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(139,92,246,0.10);
+    }
+
+    .question p {
+      margin-top: 0;
+      font-weight: bold;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+      box-shadow: 0 12px 30px rgba(139,92,246,0.22);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 24px;
+    }
+
+    .result h2 {
+      color: #6d28d9;
+      margin-top: 0;
+      line-height: 1.4;
+    }
+
+    .result h3,
+    .result p {
+      color: #3c3c4d;
+    }
+
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+      margin-top: 15px;
+      box-shadow: none;
+    }
+
+    .notice {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      background: rgba(255,255,255,0.72);
+      padding: 15px;
+      border-radius: 18px;
+      border: 1px solid rgba(221, 214, 254, 0.95);
+    }
+
+    .iti {
+      width: 100%;
+      position: relative;
+      z-index: 30;
+    }
+
+    .iti input {
+      width: 100% !important;
+      border-radius: 14px;
+      padding-left: 92px !important;
+    }
+
+    .iti__selected-flag {
+      border-radius: 14px 0 0 14px;
+    }
+
+    .iti__country-list {
+      z-index: 999999 !important;
+      background: #ffffff !important;
+      color: #111111 !important;
+      border: 1px solid rgba(0,0,0,0.10) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.18) !important;
+      max-height: 280px !important;
+      overflow-y: auto !important;
+      opacity: 1 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .iti__country-list * {
+      color: #111111 !important;
+    }
+
+    .iti__search-input {
+      background: #ffffff !important;
+      color: #111111 !important;
+    }
+
+    @media(max-width:768px) {
+      .container {
+        padding: 18px;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <span class="mind">Mind</span><span class="lap">Lap</span>
+  </div>
+
+  <h1>Depression Self-Awareness Test</h1>
+
+  <div class="subtitle">
+    A simple emotional wellbeing self-awareness screening tool.<br>
+    Answer based on your experiences during the last 2 weeks.
+  </div>
+
+  <div class="field">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" placeholder="Enter full name">
+  </div>
+
+  <div class="field">
+    <label for="phone">Phone Number</label>
+    <input id="phone" type="tel" placeholder="Enter phone number" />
+  </div>
+
+  <div class="field">
+    <label for="age">Age</label>
+    <input type="number" id="age" placeholder="Enter age">
+  </div>
+
+  <form id="testForm"></form>
+
+  <button type="button" id="submitBtn">Submit Test</button>
+
+  <div class="result" id="resultBox">
+    <h2 id="scoreText"></h2>
+    <h3 id="resultTitle"></h3>
+    <p id="resultDesc"></p>
+
+    <button type="button" class="whatsapp-btn" id="whatsappBtn">
+      Connect with us
+    </button>
+  </div>
+
+  <div class="notice">
+    This test is for self-awareness purposes only and not a medical diagnosis.
+    If emotional difficulties are affecting your daily life, consider speaking with a qualified mental health professional.
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
+<script>
+  const questions = [
+    "Do you often feel emotionally low or empty without a clear reason?",
+    "Have you lost interest in activities you previously enjoyed?",
+    "Do you feel mentally exhausted even after resting?",
+    "Do you struggle to feel motivated for daily tasks?",
+    "Do you often feel hopeless about the future?",
+    "Have your sleep patterns changed significantly recently?",
+    "Do you isolate yourself from friends, family, or social situations?",
+    "Do small tasks feel unusually overwhelming?",
+    "Do you frequently feel worthless or like a burden?",
+    "Have you noticed changes in your appetite or eating habits?",
+    "Do you find it difficult to concentrate or make decisions?",
+    "Do you feel emotionally numb or disconnected from people around you?",
+    "Have you been feeling unusually irritable, frustrated, or emotionally sensitive?",
+    "Do you often feel like life has become repetitive or meaningless?",
+    "Is your emotional state affecting your productivity, relationships, or daily routine?"
+  ];
+
+  const form = document.getElementById("testForm");
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `
+      <p>${index + 1}. ${q}</p>
+      <select id="q${index + 1}">
+        <option value="">Select answer</option>
+        <option value="0">Never</option>
+        <option value="1">Sometimes</option>
+        <option value="2">Often</option>
+        <option value="3">Almost every day</option>
+      </select>
+    `;
+    form.appendChild(div);
+  });
+
+  const phoneInput = document.querySelector("#phone");
+
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "in",
+    separateDialCode: true,
+    preferredCountries: ["in", "ae", "qa", "sa", "kw", "us", "gb"],
+    dropdownContainer: document.body,
+    nationalMode: false,
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+  });
+
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec";
+
+  let whatsappMessage = "Hello, I attended your depression test and I would like to talk about it.";
+
+  function getResult(total) {
+    if (total <= 10) {
+      return {
+        title: "Mild Emotional Strain",
+        desc: "You may be experiencing temporary emotional stress or low mood. Rest, support, and self-care may help."
+      };
+    } else if (total <= 25) {
+      return {
+        title: "Moderate Emotional Difficulty",
+        desc: "You may be developing noticeable emotional struggles that could affect your routine and motivation."
+      };
+    } else if (total <= 35) {
+      return {
+        title: "High Emotional Impact",
+        desc: "Your emotional wellbeing may be significantly affected. Professional support could be beneficial."
+      };
+    } else {
+      return {
+        title: "Severe Distress Zone",
+        desc: "Your emotional state may be strongly affecting your daily functioning and wellbeing. Speaking with a qualified mental health professional is strongly recommended."
+      };
+    }
+  }
+
+  async function submitTest() {
+    const fullname = document.getElementById("fullname").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const phone = iti.getNumber();
+
+    if (!fullname || !phone || !age) {
+      alert("Please fill all details");
+      return;
+    }
+
+    let total = 0;
+
+    for (let i = 1; i <= 15; i++) {
+      const val = document.getElementById(`q${i}`).value;
+      if (val === "") {
+        alert("Please answer all questions");
+        return;
+      }
+      total += Number(val);
+    }
+
+    const result = getResult(total);
+
+    document.getElementById("scoreText").innerText = `Hey ${fullname}, your score is ${total}/45`;
+    document.getElementById("resultTitle").innerText = result.title;
+    document.getElementById("resultDesc").innerText = result.desc;
+    document.getElementById("resultBox").style.display = "block";
+
+    await fetch(SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        fullname,
+        phone,
+        age,
+        score: total,
+        result: result.title,
+        type: "Depression Test"
+      })
+    });
+
+    document.getElementById("resultBox").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+  function openWhatsApp() {
+    const url = `https://wa.me/918590991552?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, "_blank");
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", submitTest);
+  document.getElementById("whatsappBtn").addEventListener("click", openWhatsApp);
+</script>
+
+</body>
+</html>
+If the dropdown still feels too tight after this, the next fix is a tiny CSS tweak to the phone input width and the list spacing.
+
+
+image(111).png
+SEE I CAN'T SELECT OTHER COUNTRIES, AND I CAN'T SEE THAT TOO
+
+Thought for 1m 12s
+Paste this entire file over the old one.
+It keeps the full Depression assessment, uses the lighter white + light purple theme, and fixes the country dropdown so it can open properly.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindLap Depression Test</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      color: #111;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(196, 181, 253, 0.45) 0%, transparent 24%),
+        radial-gradient(circle at 85% 15%, rgba(221, 214, 254, 0.55) 0%, transparent 22%),
+        radial-gradient(circle at 20% 85%, rgba(233, 213, 255, 0.45) 0%, transparent 24%),
+        linear-gradient(135deg, #ffffff 0%, #f7f2ff 48%, #efe4ff 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 300px;
+      height: 300px;
+      left: -90px;
+      bottom: -90px;
+      background: rgba(216, 180, 254, 0.60);
+    }
+
+    body::after {
+      width: 260px;
+      height: 260px;
+      right: -70px;
+      top: 60px;
+      background: rgba(196, 181, 253, 0.55);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: auto;
+      padding: 28px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.78);
+      box-shadow:
+        0 18px 55px rgba(139,92,246,0.14),
+        inset 0 1px 0 rgba(255,255,255,0.90);
+      overflow: visible;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 44px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .logo .mind {
+      color: #111111;
+    }
+
+    .logo .lap {
+      color: #8b5cf6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #6d28d9;
+      margin: 0 0 10px;
+      font-size: 34px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #5f5f72;
+      margin-bottom: 28px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .field,
+    .question,
+    .result {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(221, 214, 254, 0.95);
+      box-shadow: 0 10px 28px rgba(139,92,246,0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .field {
+      margin-bottom: 18px;
+      border-radius: 20px;
+      padding: 14px;
+      position: relative;
+      overflow: visible;
+    }
+
+    label,
+    .question p {
+      color: #2b1b52;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid #d8c6ff;
+      font-size: 15px;
+      background: #fff;
+      color: #111111;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    button:focus {
+      outline: 2px solid rgba(139,92,246,0.28);
+      outline-offset: 2px;
+    }
+
+    .question {
+      padding: 18px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      transition: 0.2s;
+    }
+
+    .question:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(139,92,246,0.10);
+    }
+
+    .question p {
+      margin-top: 0;
+      font-weight: bold;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+      box-shadow: 0 12px 30px rgba(139,92,246,0.22);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 24px;
+    }
+
+    .result h2 {
+      color: #6d28d9;
+      margin-top: 0;
+      line-height: 1.4;
+    }
+
+    .result h3,
+    .result p {
+      color: #3c3c4d;
+    }
+
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+      margin-top: 15px;
+      box-shadow: none;
+    }
+
+    .notice {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      background: rgba(255,255,255,0.72);
+      padding: 15px;
+      border-radius: 18px;
+      border: 1px solid rgba(221, 214, 254, 0.95);
+    }
+
+    .iti {
+      width: 100%;
+      position: relative;
+      z-index: 30;
+    }
+
+    .iti input {
+      width: 100% !important;
+      border-radius: 14px;
+      padding-left: 92px !important;
+    }
+
+    .iti__selected-flag {
+      border-radius: 14px 0 0 14px;
+    }
+
+    .iti__country-list {
+      z-index: 999999 !important;
+      background: #ffffff !important;
+      color: #111111 !important;
+      border: 1px solid rgba(0,0,0,0.10) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.18) !important;
+      max-height: 280px !important;
+      overflow-y: auto !important;
+      opacity: 1 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .iti__country-list * {
+      color: #111111 !important;
+    }
+
+    .iti__search-input {
+      background: #ffffff !important;
+      color: #111111 !important;
+    }
+
+    .iti-mobile .iti__country-list {
+      position: fixed !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: min(92vw, 420px) !important;
+    }
+
+    @media(max-width:768px) {
+      .container {
+        padding: 18px;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <span class="mind">Mind</span><span class="lap">Lap</span>
+  </div>
+
+  <h1>Depression Self-Awareness Test</h1>
+
+  <div class="subtitle">
+    A simple emotional wellbeing self-awareness screening tool.<br>
+    Answer based on your experiences during the last 2 weeks.
+  </div>
+
+  <div class="field">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" placeholder="Enter full name">
+  </div>
+
+  <div class="field">
+    <label for="phone">Phone Number</label>
+    <input id="phone" type="tel" placeholder="Enter phone number" />
+  </div>
+
+  <div class="field">
+    <label for="age">Age</label>
+    <input type="number" id="age" placeholder="Enter age">
+  </div>
+
+  <form id="testForm"></form>
+
+  <button type="button" id="submitBtn">Submit Test</button>
+
+  <div class="result" id="resultBox">
+    <h2 id="scoreText"></h2>
+    <h3 id="resultTitle"></h3>
+    <p id="resultDesc"></p>
+
+    <button type="button" class="whatsapp-btn" id="whatsappBtn">
+      Connect with us
+    </button>
+  </div>
+
+  <div class="notice">
+    This test is for self-awareness purposes only and not a medical diagnosis.
+    If emotional difficulties are affecting your daily life, consider speaking with a qualified mental health professional.
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+
+<script>
+  const questions = [
+    "Do you often feel emotionally low or empty without a clear reason?",
+    "Have you lost interest in activities you previously enjoyed?",
+    "Do you feel mentally exhausted even after resting?",
+    "Do you struggle to feel motivated for daily tasks?",
+    "Do you often feel hopeless about the future?",
+    "Have your sleep patterns changed significantly recently?",
+    "Do you isolate yourself from friends, family, or social situations?",
+    "Do small tasks feel unusually overwhelming?",
+    "Do you frequently feel worthless or like a burden?",
+    "Have you noticed changes in your appetite or eating habits?",
+    "Do you find it difficult to concentrate or make decisions?",
+    "Do you feel emotionally numb or disconnected from people around you?",
+    "Have you been feeling unusually irritable, frustrated, or emotionally sensitive?",
+    "Do you often feel like life has become repetitive or meaningless?",
+    "Is your emotional state affecting your productivity, relationships, or daily routine?"
+  ];
+
+  const form = document.getElementById("testForm");
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `
+      <p>${index + 1}. ${q}</p>
+      <select id="q${index + 1}">
+        <option value="">Select answer</option>
+        <option value="0">Never</option>
+        <option value="1">Sometimes</option>
+        <option value="2">Often</option>
+        <option value="3">Almost every day</option>
+      </select>
+    `;
+    form.appendChild(div);
+  });
+
+  const phoneInput = document.querySelector("#phone");
+
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "in",
+    separateDialCode: true,
+    preferredCountries: ["in", "ae", "qa", "sa", "kw", "us", "gb"],
+    allowDropdown: true,
+    dropdownContainer: document.body,
+    nationalMode: false,
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+  });
+
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec";
+
+  let whatsappMessage = "Hello, I attended your depression test and I would like to talk about it.";
+
+  function getResult(total) {
+    if (total <= 10) {
+      return {
+        title: "Mild Emotional Strain",
+        desc: "You may be experiencing temporary emotional stress or low mood. Rest, support, and self-care may help."
+      };
+    } else if (total <= 25) {
+      return {
+        title: "Moderate Emotional Difficulty",
+        desc: "You may be developing noticeable emotional struggles that could affect your routine and motivation."
+      };
+    } else if (total <= 35) {
+      return {
+        title: "High Emotional Impact",
+        desc: "Your emotional wellbeing may be significantly affected. Professional support could be beneficial."
+      };
+    } else {
+      return {
+        title: "Severe Distress Zone",
+        desc: "Your emotional state may be strongly affecting your daily functioning and wellbeing. Speaking with a qualified mental health professional is strongly recommended."
+      };
+    }
+  }
+
+  async function submitTest() {
+    const fullname = document.getElementById("fullname").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const phone = iti.getNumber();
+
+    if (!fullname || !phone || !age) {
+      alert("Please fill all details");
+      return;
+    }
+
+    let total = 0;
+
+    for (let i = 1; i <= 15; i++) {
+      const val = document.getElementById(`q${i}`).value;
+      if (val === "") {
+        alert("Please answer all questions");
+        return;
+      }
+      total += Number(val);
+    }
+
+    const result = getResult(total);
+
+    document.getElementById("scoreText").innerText = `Hey ${fullname}, your score is ${total}/45`;
+    document.getElementById("resultTitle").innerText = result.title;
+    document.getElementById("resultDesc").innerText = result.desc;
+    document.getElementById("resultBox").style.display = "block";
+
+    await fetch(SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        fullname,
+        phone,
+        age,
+        score: total,
+        result: result.title,
+        type: "Depression Test"
+      })
+    });
+
+    document.getElementById("resultBox").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+  function openWhatsApp() {
+    const url = `https://wa.me/918590991552?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, "_blank");
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", submitTest);
+  document.getElementById("whatsappBtn").addEventListener("click", openWhatsApp);
+</script>
+
+</body>
+</html>
+After pasting, do a hard refresh once.
+If you still do not see the dropdown, the next thing to check is whether another old CSS file or old index.html content is still in the repo.
+
+
+image(112).png
+COUNTRY DROPDOWN IS NOT SHOWING, I THINK THAT IS SHOWING BUT OVERLAY IS HAPPENING
+
+Thought for 40s
+Yes — the list is opening, but it is sitting behind the card.
+
+Do these two exact replacements in index.html.
+
+1) Replace your current phone CSS block with this
+Find the block that starts with .iti { and replace that whole part with:
+
+.field{
+  overflow: visible;
+}
+
+.container{
+  overflow: visible;
+}
+
+.iti{
+  width:100%;
+  position:relative;
+  z-index:999999;
+}
+
+.iti input{
+  width:100% !important;
+  padding-left:92px !important;
+}
+
+.iti__selected-flag{
+  border-radius:14px 0 0 14px;
+}
+
+.iti__country-list{
+  z-index:2147483647 !important;
+  background:#ffffff !important;
+  color:#111111 !important;
+  border:1px solid rgba(0,0,0,0.10) !important;
+  border-radius:16px !important;
+  box-shadow:0 16px 40px rgba(0,0,0,0.18) !important;
+  max-height:280px !important;
+  overflow-y:auto !important;
+  opacity:1 !important;
+}
+Also delete any older .iti__country-list { ... } block if you have one left anywhere else in the file.
+
+2) Replace your phone init with this
+Find your intlTelInput(...) part and make it exactly this:
+
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "in",
+  separateDialCode: true,
+  preferredCountries: ["in", "ae", "qa", "sa", "kw", "us", "gb"],
+  allowDropdown: true,
+  dropdownContainer: document.body,
+  nationalMode: false,
+  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+});
+Then:
+
+Commit changes
+
+Hard refresh the page
+
+Click the tiny arrow next to +91
+
+That should open the full country list on top of everything.
+
+
+GIVE ME THE FULL CODE
+
+Thought for 7s
+Replace the whole index.html with this:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindLap Depression Test</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      color: #111;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(196, 181, 253, 0.45) 0%, transparent 24%),
+        radial-gradient(circle at 85% 15%, rgba(221, 214, 254, 0.55) 0%, transparent 22%),
+        radial-gradient(circle at 20% 85%, rgba(233, 213, 255, 0.45) 0%, transparent 24%),
+        linear-gradient(135deg, #ffffff 0%, #f7f2ff 48%, #efe4ff 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 300px;
+      height: 300px;
+      left: -90px;
+      bottom: -90px;
+      background: rgba(216, 180, 254, 0.60);
+    }
+
+    body::after {
+      width: 260px;
+      height: 260px;
+      right: -70px;
+      top: 60px;
+      background: rgba(196, 181, 253, 0.55);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: auto;
+      padding: 28px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.78);
+      box-shadow:
+        0 18px 55px rgba(139,92,246,0.14),
+        inset 0 1px 0 rgba(255,255,255,0.90);
+      overflow: visible;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 44px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .logo .mind {
+      color: #111111;
+    }
+
+    .logo .lap {
+      color: #8b5cf6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #6d28d9;
+      margin: 0 0 10px;
+      font-size: 34px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #5f5f72;
+      margin-bottom: 28px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .field,
+    .question,
+    .result {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(221, 214, 254, 0.95);
+      box-shadow: 0 10px 28px rgba(139,92,246,0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .field {
+      margin-bottom: 18px;
+      border-radius: 20px;
+      padding: 14px;
+      position: relative;
+      overflow: visible;
+    }
+
+    label,
+    .question p {
+      color: #2b1b52;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid #d8c6ff;
+      font-size: 15px;
+      background: #fff;
+      color: #111111;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    button:focus {
+      outline: 2px solid rgba(139,92,246,0.28);
+      outline-offset: 2px;
+    }
+
+    .question {
+      padding: 18px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      transition: 0.2s;
+    }
+
+    .question:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(139,92,246,0.10);
+    }
+
+    .question p {
+      margin-top: 0;
+      font-weight: bold;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+      box-shadow: 0 12px 30px rgba(139,92,246,0.22);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 24px;
+    }
+
+    .result h2 {
+      color: #6d28d9;
+      margin-top: 0;
+      line-height: 1.4;
+    }
+
+    .result h3,
+    .result p {
+      color: #3c3c4d;
+    }
+
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+      margin-top: 15px;
+      box-shadow: none;
+    }
+
+    .notice {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      background: rgba(255,255,255,0.72);
+      padding: 15px;
+      border-radius: 18px;
+      border: 1px solid rgba(221, 214, 254, 0.95);
+    }
+
+    .iti {
+      width: 100%;
+      position: relative;
+      z-index: 999999;
+    }
+
+    .iti input {
+      width: 100% !important;
+      border-radius: 14px;
+      padding-left: 92px !important;
+    }
+
+    .iti__selected-flag {
+      border-radius: 14px 0 0 14px;
+    }
+
+    .iti__country-list {
+      z-index: 2147483647 !important;
+      background: #ffffff !important;
+      color: #111111 !important;
+      border: 1px solid rgba(0,0,0,0.10) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.18) !important;
+      max-height: 280px !important;
+      overflow-y: auto !important;
+      opacity: 1 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .iti__country-list * {
+      color: #111111 !important;
+    }
+
+    .iti__search-input {
+      background: #ffffff !important;
+      color: #111111 !important;
+    }
+
+    .iti-mobile .iti__country-list {
+      position: fixed !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: min(92vw, 420px) !important;
+    }
+
+    @media(max-width:768px) {
+      .container {
+        padding: 18px;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <span class="mind">Mind</span><span class="lap">Lap</span>
+  </div>
+
+  <h1>Depression Self-Awareness Test</h1>
+
+  <div class="subtitle">
+    A simple emotional wellbeing self-awareness screening tool.<br>
+    Answer based on your experiences during the last 2 weeks.
+  </div>
+
+  <div class="field">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" placeholder="Enter full name">
+  </div>
+
+  <div class="field">
+    <label for="phone">Phone Number</label>
+    <input id="phone" type="tel" placeholder="Enter phone number" />
+  </div>
+
+  <div class="field">
+    <label for="age">Age</label>
+    <input type="number" id="age" placeholder="Enter age">
+  </div>
+
+  <form id="testForm"></form>
+
+  <button type="button" id="submitBtn">Submit Test</button>
+
+  <div class="result" id="resultBox">
+    <h2 id="scoreText"></h2>
+    <h3 id="resultTitle"></h3>
+    <p id="resultDesc"></p>
+
+    <button type="button" class="whatsapp-btn" id="whatsappBtn">
+      Connect with us
+    </button>
+  </div>
+
+  <div class="notice">
+    This test is for self-awareness purposes only and not a medical diagnosis.
+    If emotional difficulties are affecting your daily life, consider speaking with a qualified mental health professional.
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+
+<script>
+  const questions = [
+    "Do you often feel emotionally low or empty without a clear reason?",
+    "Have you lost interest in activities you previously enjoyed?",
+    "Do you feel mentally exhausted even after resting?",
+    "Do you struggle to feel motivated for daily tasks?",
+    "Do you often feel hopeless about the future?",
+    "Have your sleep patterns changed significantly recently?",
+    "Do you isolate yourself from friends, family, or social situations?",
+    "Do small tasks feel unusually overwhelming?",
+    "Do you frequently feel worthless or like a burden?",
+    "Have you noticed changes in your appetite or eating habits?",
+    "Do you find it difficult to concentrate or make decisions?",
+    "Do you feel emotionally numb or disconnected from people around you?",
+    "Have you been feeling unusually irritable, frustrated, or emotionally sensitive?",
+    "Do you often feel like life has become repetitive or meaningless?",
+    "Is your emotional state affecting your productivity, relationships, or daily routine?"
+  ];
+
+  const form = document.getElementById("testForm");
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `
+      <p>${index + 1}. ${q}</p>
+      <select id="q${index + 1}">
+        <option value="">Select answer</option>
+        <option value="0">Never</option>
+        <option value="1">Sometimes</option>
+        <option value="2">Often</option>
+        <option value="3">Almost every day</option>
+      </select>
+    `;
+    form.appendChild(div);
+  });
+
+  const phoneInput = document.querySelector("#phone");
+
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "in",
+    separateDialCode: true,
+    preferredCountries: ["in", "ae", "qa", "sa", "kw", "us", "gb"],
+    allowDropdown: true,
+    dropdownContainer: document.body,
+    nationalMode: false,
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+  });
+
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec";
+
+  let whatsappMessage = "Hello, I attended your depression test and I would like to talk about it.";
+
+  function getResult(total) {
+    if (total <= 10) {
+      return {
+        title: "Mild Emotional Strain",
+        desc: "You may be experiencing temporary emotional stress or low mood. Rest, support, and self-care may help."
+      };
+    } else if (total <= 25) {
+      return {
+        title: "Moderate Emotional Difficulty",
+        desc: "You may be developing noticeable emotional struggles that could affect your routine and motivation."
+      };
+    } else if (total <= 35) {
+      return {
+        title: "High Emotional Impact",
+        desc: "Your emotional wellbeing may be significantly affected. Professional support could be beneficial."
+      };
+    } else {
+      return {
+        title: "Severe Distress Zone",
+        desc: "Your emotional state may be strongly affecting your daily functioning and wellbeing. Speaking with a qualified mental health professional is strongly recommended."
+      };
+    }
+  }
+
+  async function submitTest() {
+    const fullname = document.getElementById("fullname").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const phone = iti.getNumber();
+
+    if (!fullname || !phone || !age) {
+      alert("Please fill all details");
+      return;
+    }
+
+    let total = 0;
+
+    for (let i = 1; i <= 15; i++) {
+      const val = document.getElementById(`q${i}`).value;
+      if (val === "") {
+        alert("Please answer all questions");
+        return;
+      }
+      total += Number(val);
+    }
+
+    const result = getResult(total);
+
+    document.getElementById("scoreText").innerText = `Hey ${fullname}, your score is ${total}/45`;
+    document.getElementById("resultTitle").innerText = result.title;
+    document.getElementById("resultDesc").innerText = result.desc;
+    document.getElementById("resultBox").style.display = "block";
+
+    await fetch(SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        fullname,
+        phone,
+        age,
+        score: total,
+        result: result.title,
+        type: "Depression Test"
+      })
+    });
+
+    document.getElementById("resultBox").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+  function openWhatsApp() {
+    const url = `https://wa.me/918590991552?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, "_blank");
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", submitTest);
+  document.getElementById("whatsappBtn").addEventListener("click", openWhatsApp);
+</script>
+
+</body>
+</html>
+
+
+Pasted text(6).txt
+Document
+SEE THIS CODE, I NEED ONLY CHANGE THAT THIS CODE FOR ANXIETY, JUST CHANGE THE CODE FOR DEPRESSION, ONLY THAT NEEDED, QUESTIONS NEEDS TO CHANGE, HEADING, ETC..IF ANYTHING IS NEEDED
+
+Thought for 25s
+Using your current anxiety template 
+
+, here is the full Depression version to replace the entire file:
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -392,3 +3779,53 @@
   </script>
 </body>
 </html>
+
+If you paste this, the heading, questions, result logic, and notice are all changed to depression, while the same tools and country code selector stay in place.
+
+
+<div class="logo">
+  <span class="mind">Mind</span><span class="lap">Lap</span>
+</div>
+
+<h1>Anxiety Self-Awareness Test</h1>
+
+<div class="subtitle">
+  A simple self-awareness screening tool.<br>
+  Answer based on your experiences during the last 2 weeks.
+</div>
+
+<div class="field">
+  <label for="fullname">Full Name</label>
+  <input type="text" id="fullname" placeholder="Enter full name">
+</div>
+
+<div class="field">
+  <label for="phone">Phone Number</label>
+  <input id="phone" type="tel" placeholder="Enter phone number" />
+</div>
+
+<div class="field">
+  <label for="age">Age</label>
+  <input type="number" id="age" placeholder="Enter age">
+</div>
+
+<form id="testForm"></form>
+
+<button type="button" onclick="submitTest()">Submit Test</button>
+
+<div class="result" id="resultBox">
+  <h2 id="scoreText"></h2>
+  <h3 id="resultTitle"></h3>
+  <p id="resultDesc"></p>
+
+  <button type="button" class="whatsapp-btn" onclick="openWhatsApp()">
+    Connect with us
+  </button>
+</div>
+
+<div class="notice">
+  This test is for self-awareness purposes only and not a medical diagnosis.
+  If anxiety is affecting your daily life, consider speaking with a qualified mental health professional.
+</div>
+
+Close
