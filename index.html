@@ -2,714 +2,347 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MindLap Anxiety Test</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+
   <style>
-    :root{
-      --bg:#ffffff;
-      --panel:#ffffff;
-      --soft:#f7f2ff;
-      --text:#111111;
-      --muted:#6b7280;
-      --line:#eadcff;
-      --purple:#8b5cf6;
-      --purple-dark:#6d28d9;
-      --shadow:0 18px 45px rgba(139,92,246,.10);
-    }
-
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
     body{
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(139,92,246,.08), transparent 30%),
-        radial-gradient(circle at top right, rgba(196,181,253,.18), transparent 28%),
-        var(--bg);
-      color:var(--text);
+      font-family: Arial, sans-serif;
+      background:#f7f4ff;
+      margin:0;
+      padding:20px;
+      color:#111;
     }
 
-    .wrap{
-      max-width:1040px;
-      margin:0 auto;
-      padding:18px;
+    .container{
+      max-width:800px;
+      margin:auto;
+      background:white;
+      padding:25px;
+      border-radius:25px;
+      box-shadow:0 10px 35px rgba(0,0,0,0.08);
     }
 
-    .card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:30px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-
-    .hero{
-      padding:26px 20px 18px;
-      background:linear-gradient(180deg, #ffffff 0%, #fbf8ff 100%);
-      border-bottom:1px solid var(--line);
-    }
-
-    .brand{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      margin-bottom:14px;
-    }
-
-    .brand-badge{
-      width:64px;
-      height:64px;
-      border-radius:18px;
-      background:#efe4ff;
-      border:2px solid #bda2ff;
-      color:#6d28d9;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .logo{
+      text-align:center;
+      font-size:42px;
       font-weight:900;
-      font-size:18px;
-      letter-spacing:.08em;
-      box-shadow:0 10px 22px rgba(139,92,246,.12);
+      margin-bottom:10px;
+      letter-spacing:-2px;
+    }
+
+    .logo .mind{
+      color:black;
+    }
+
+    .logo .lap{
+      color:#8b5cf6;
     }
 
     h1{
-      margin:0;
       text-align:center;
-      font-size:clamp(24px, 4vw, 38px);
-      line-height:1.2;
-      letter-spacing:-0.02em;
+      color:#6d28d9;
+      margin-bottom:10px;
     }
 
     .subtitle{
-      margin:12px auto 0;
-      max-width:800px;
       text-align:center;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:15px;
-    }
-
-    .content{
-      padding:20px 18px 26px;
-    }
-
-    .progress{
-      background:var(--soft);
-      border:1px solid #e9d5ff;
-      color:#5b21b6;
-      border-radius:18px;
-      padding:14px 16px;
-      font-weight:700;
-      margin-bottom:16px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .topgrid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin-bottom:18px;
+      color:#666;
+      margin-bottom:30px;
+      line-height:1.6;
     }
 
     .field{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius:20px;
-      padding:14px;
+      margin-bottom:20px;
     }
 
-    .field label{
+    label{
       display:block;
       margin-bottom:8px;
-      font-size:13px;
-      font-weight:700;
-      color:#3b0764;
-    }
-
-    .field input{
-      width:100%;
-      border:1px solid #d8c6ff;
-      border-radius:14px;
-      padding:12px 14px;
-      font-size:15px;
-      outline:none;
-      background:#fff;
-    }
-.phone-wrap{
-  display:flex;
-  gap:10px;
-}
-
-.phone-wrap select{
-  width:120px;
-  border:1px solid #d8c6ff;
-  border-radius:14px;
-  padding:12px;
-  background:#fff;
-  font-size:15px;
-}
-
-.phone-wrap input{
-  flex:1;
-}
-    .field input:focus,
-    select:focus,
-    button:focus{
-      outline:2px solid rgba(139,92,246,.35);
-      outline-offset:2px;
-    }
-
-    .question{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:16px;
-      margin-bottom:14px;
-    }
-
-    .question p{
-      margin:0 0 10px;
-      font-size:16px;
-      font-weight:700;
-      line-height:1.55;
-    }
-
-    .question select{
-      width:100%;
-      border:1px solid #d8c6ff;
-      background:#fff;
-      border-radius:14px;
-      padding:12px 14px;
-      font-size:15px;
-    }
-
-    .actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:18px;
-    }
-
-    .actions button,
-    .connect-btn{
-      border:none;
-      border-radius:16px;
-      padding:14px 18px;
-      font-size:16px;
-      font-weight:700;
-      cursor:pointer;
-      transition:transform .12s ease, opacity .12s ease, background .12s ease;
-    }
-
-    .actions button:hover,
-    .connect-btn:hover{
-      transform:translateY(-1px);
-    }
-
-    .primary{
-      background:linear-gradient(135deg, var(--purple-dark), var(--purple));
-      color:#fff;
-    }
-
-    .secondary{
-      background:#f3e8ff;
+      font-weight:bold;
       color:#4c1d95;
     }
 
-    .primary:disabled{
-      opacity:.45;
-      cursor:not-allowed;
-      transform:none;
+    input,
+    select{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:1px solid #d8c6ff;
+      font-size:15px;
+      box-sizing:border-box;
+    }
+
+    .question{
+      background:#faf7ff;
+      padding:18px;
+      border-radius:18px;
+      margin-bottom:15px;
+      border:1px solid #e9ddff;
+    }
+
+    .question p{
+      margin-top:0;
+      font-weight:bold;
+      line-height:1.5;
+    }
+
+    button{
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:15px;
+      background:#7c3aed;
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      margin-top:10px;
+    }
+
+    button:hover{
+      background:#6d28d9;
     }
 
     .result{
       display:none;
-      margin-top:18px;
-      padding:20px;
-      border-radius:24px;
+      margin-top:25px;
+      background:#faf5ff;
+      padding:25px;
+      border-radius:20px;
       border:1px solid #e9d5ff;
-      background:linear-gradient(180deg,#ffffff 0%,#faf5ff 100%);
     }
 
-    .result .score{
-      margin:0;
-      font-size:30px;
-      font-weight:800;
-      color:#4c1d95;
-      line-height:1.35;
+    .result h2{
+      color:#6d28d9;
+      margin-top:0;
     }
 
-    .result .title{
-      margin:8px 0 10px;
-      font-size:22px;
-      font-weight:800;
-      color:#111827;
+    .whatsapp-btn{
+      background:#25D366;
+      margin-top:15px;
     }
 
-    .result .desc{
-      margin:0;
-      color:#374151;
-      line-height:1.75;
-    }
-
-    .connect-wrap{
-      margin-top:16px;
-      display:none;
-    }
-
-    .connect-btn{
-      background:linear-gradient(135deg, #7c3aed, #a855f7);
-      color:#fff;
-      width:100%;
+    .whatsapp-btn:hover{
+      background:#1ebe5d;
     }
 
     .notice{
-      margin-top:16px;
-      border-radius:18px;
-      padding:14px 16px;
-      background:#faf5ff;
-      border:1px solid #e9d5ff;
-      color:#6b21a8;
-      line-height:1.7;
+      margin-top:25px;
       font-size:14px;
+      color:#666;
+      line-height:1.6;
+      background:#faf7ff;
+      padding:15px;
+      border-radius:15px;
     }
 
-    @media (max-width:760px){
-      .topgrid{grid-template-columns:1fr}
-      .content{padding:16px 14px 22px}
-      .hero{padding:22px 16px 16px}
-      h1{font-size:26px}
+    .iti{
+      width:100%;
+    }
+
+    @media(max-width:768px){
+      .container{
+        padding:18px;
+      }
+
+      .logo{
+        font-size:34px;
+      }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="hero">
-        <div class="brand">
-  <div class="mindlap-logo">
+
+<div class="container">
+
+  <div class="logo">
     <span class="mind">Mind</span><span class="lap">Lap</span>
   </div>
-</div>
 
-        <h1>MindLap Anxiety Self Awareness Test</h1>
+  <h1>Anxiety Self-Awareness Test</h1>
 
-        <p class="subtitle">
-          A simple self-check tool for awareness and reflection.
-          Rate each question based on how often you experienced it during the last 2 weeks.
-        </p>
-      </div>
-
-      <div class="content">
-        <div class="progress" id="progress">
-          <span>Answered 0 / 15</span>
-          <span id="readyText">Form not ready yet</span>
-        </div>
-
-        <div class="topgrid">
-          <div class="field">
-            <label for="fullname">Full Name</label>
-            <input id="fullname" type="text" placeholder="Enter full name" />
-          </div>
-
-          <div class="field">
-            <label for="phone">Phone Number</label>
-            <input id="phone" type="tel" placeholder="Enter phone number" />
-  <select id="countryCode">
-    <option value="+91">🇮🇳 +91</option>
-    <option value="+971">🇦🇪 +971</option>
-    <option value="+1">🇺🇸 +1</option>
-    <option value="+44">🇬🇧 +44</option>
-    <option value="+966">🇸🇦 +966</option>
-    <option value="+974">🇶🇦 +974</option>
-    <option value="+965">🇰🇼 +965</option>
-  </select>
-
-  <input id="phone" type="tel" placeholder="Enter phone number" />
-</div>
-          </div>
-
-          <div class="field">
-            <label for="age">Age</label>
-            <input id="age" type="number" min="1" max="120" placeholder="Enter age" />
-          </div>
-        </div>
-
-        <form id="testForm">
-          <div class="question">
-            <p>1. Do you overthink even small situations?</p>
-            <select name="q1">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>2. Do you feel nervous or tense without a clear reason?</p>
-            <select name="q2">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>3. Do you experience a fast heartbeat, chest tightness, or restlessness?</p>
-            <select name="q3">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>4. Do worst-case scenarios repeatedly come to your mind?</p>
-            <select name="q4">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>5. Do you find it difficult to relax?</p>
-            <select name="q5">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>6. Do you struggle with sleep because of excessive thinking or worry?</p>
-            <select name="q6">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>7. Do social interactions make you feel nervous or uncomfortable?</p>
-            <select name="q7">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>8. Do you find it hard to concentrate?</p>
-            <select name="q8">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>9. Do you experience physical symptoms like sweating, shaking, or stomach discomfort during stress?</p>
-            <select name="q9">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>10. Do you constantly feel like something bad might happen?</p>
-            <select name="q10">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>11. Do small mistakes feel like major failures?</p>
-            <select name="q11">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>12. Have you started avoiding calls, people, work, or situations more than usual?</p>
-            <select name="q12">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>13. Do you feel mentally exhausted even after resting?</p>
-            <select name="q13">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>14. Do you struggle to control your thoughts or worries?</p>
-            <select name="q14">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <p>15. Is anxiety affecting your daily routine or productivity?</p>
-            <select name="q15">
-              <option value="">Select answer</option>
-              <option value="0">Never</option>
-              <option value="1">Sometimes</option>
-              <option value="2">Often</option>
-              <option value="3">Almost every day</option>
-            </select>
-          </div>
-
-          <div class="actions">
-            <button type="button" class="primary" id="submitBtn" disabled>Submit Test</button>
-            <button type="button" class="secondary" id="resetBtn">Reset</button>
-          </div>
-        </form>
-
-        <div class="result" id="resultBox">
-          <p class="score" id="scoreText"></p>
-          <div class="title" id="resultTitle"></div>
-          <p class="desc" id="resultDesc"></p>
-          <div class="connect-wrap" id="connectWrap">
-            <button type="button" class="connect-btn" id="whatsappBtn">Connect with us</button>
-          </div>
-        </div>
-
-        <div class="notice">
-          This test is for self-awareness only and is not a diagnosis. If anxiety is affecting daily life, speaking with a qualified mental health professional is recommended.
-        </div>
-      </div>
-    </div>
+  <div class="subtitle">
+    A simple self-awareness screening tool.<br>
+    Answer based on your experiences during the last 2 weeks.
   </div>
 
-  <script>
-    const sheetUrl = "https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec";
-    const whatsappNumber = "918590991552";
+  <div class="field">
+    <label>Full Name</label>
+    <input type="text" id="fullname" placeholder="Enter full name">
+  </div>
 
-    const questionCount = 15;
-    const saveKey = "mindlap_msat_responses";
+  <div class="field">
+    <label>Phone Number</label>
+    <input id="phone" type="tel" placeholder="Enter phone number" />
+  </div>
 
-    const form = document.getElementById("testForm");
-    const fullNameEl = document.getElementById("fullname");
-    const phoneEl = document.getElementById("phone");
-    const ageEl = document.getElementById("age");
-    const progressEl = document.getElementById("progress");
-    const readyTextEl = document.getElementById("readyText");
-    const submitBtn = document.getElementById("submitBtn");
-    const resetBtn = document.getElementById("resetBtn");
-    const resultBox = document.getElementById("resultBox");
-    const scoreText = document.getElementById("scoreText");
-    const resultTitle = document.getElementById("resultTitle");
-    const resultDesc = document.getElementById("resultDesc");
-    const connectWrap = document.getElementById("connectWrap");
-    const whatsappBtn = document.getElementById("whatsappBtn");
+  <div class="field">
+    <label>Age</label>
+    <input type="number" id="age" placeholder="Enter age">
+  </div>
 
-    function countAnswered() {
-      let count = 0;
-      for (let i = 1; i <= questionCount; i++) {
-        if (form[`q${i}`].value !== "") count++;
-      }
-      return count;
-    }
+  <form id="testForm"></form>
 
-    function allQuestionsAnswered() {
-      for (let i = 1; i <= questionCount; i++) {
-        if (form[`q${i}`].value === "") return false;
-      }
-      return true;
-    }
+  <button onclick="submitTest()">Submit Test</button>
 
-    function updateProgress() {
-      const answered = countAnswered();
-      const ready =
-        fullNameEl.value.trim() &&
-        phoneEl.value.trim() &&
-        ageEl.value.trim() &&
-        allQuestionsAnswered();
+  <div class="result" id="resultBox">
+    <h2 id="scoreText"></h2>
+    <h3 id="resultTitle"></h3>
+    <p id="resultDesc"></p>
 
-      progressEl.firstElementChild.textContent = `Answered ${answered} / ${questionCount}`;
-      readyTextEl.textContent = ready ? "Ready to submit" : "Form not ready yet";
-      submitBtn.disabled = !ready;
-    }
+    <button class="whatsapp-btn" onclick="openWhatsApp()">
+      Connect with us
+    </button>
+  </div>
 
-    function getResult(score) {
-      if (score <= 10) {
-        return {
-          title: "Mild Awareness Zone",
-          text: "You may be experiencing normal stress levels rather than significant anxiety. Improving sleep, routine, and stress management may help."
-        };
-      }
-      if (score <= 25) {
-        return {
-          title: "Moderate Anxiety Signs",
-          text: "You may be developing noticeable anxiety patterns. Emotional regulation, grounding techniques, and lifestyle adjustments could be helpful."
-        };
-      }
-      if (score <= 35) {
-        return {
-          title: "High Anxiety Impact",
-          text: "Anxiety may be significantly affecting your emotions, body, focus, or routine. Seeking professional support could be beneficial."
-        };
-      }
-      return {
-        title: "Severe Distress Zone",
-        text: "Anxiety may be strongly impacting your daily functioning, sleep, relationships, or concentration. Speaking with a qualified mental health professional is strongly recommended."
-      };
-    }
+  <div class="notice">
+    This test is for self-awareness purposes only and not a medical diagnosis.
+    If anxiety is affecting your daily life, consider speaking with a qualified mental health professional.
+  </div>
 
-    function calculateScore() {
-      let total = 0;
-      for (let i = 1; i <= questionCount; i++) {
-        total += Number(form[`q${i}`].value || 0);
-      }
-      return total;
-    }
-
-    function buildWhatsAppMessage(payload) {
-  return "Hello, I attended your anxiety test and I would like to talk about it.";
-}
-
-    function saveLocally(payload) {
-      const existing = JSON.parse(localStorage.getItem(saveKey) || "[]");
-      existing.push(payload);
-      localStorage.setItem(saveKey, JSON.stringify(existing));
-    }
-
-    async function sendToSheet(payload) {
-      try {
-        await fetch(sheetUrl, {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
-        });
-      } catch (error) {
-        console.error("Sheet save failed:", error);
-      }
-    }
-
-    let whatsappDataMessage = "";
-
-    function openWhatsApp() {
-      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-        whatsappDataMessage || "Hello, I attended your anxiety test and I would like to talk about it."
-      )}`;
-      window.open(url, "_blank");
-    }
-
-    document.querySelectorAll("select").forEach((el) => {
-      el.addEventListener("change", updateProgress);
-    });
-
-    [fullNameEl, phoneEl, ageEl].forEach((el) => {
-      el.addEventListener("input", updateProgress);
-    });
-
-    submitBtn.addEventListener("click", async () => {
-      const score = calculateScore();
-      const result = getResult(score);
-
-      const payload = {
-        timestamp: new Date().toISOString(),
-        fullname: fullNameEl.value.trim(),
-        phone: document.getElementById("countryCode").value + phoneEl.value.trim(),
-        age: ageEl.value.trim(),
-        score,
-        result: result.title,
-        answers: Object.fromEntries(
-          Array.from({ length: questionCount }, (_, i) => [`q${i + 1}`, form[`q${i + 1}`].value])
-        )
-      };
-
-      saveLocally(payload);
-      await sendToSheet(payload);
-
-      scoreText.textContent = `Hey ${payload.fullname}, your score is ${score}/45`;
-      resultTitle.textContent = result.title;
-      resultDesc.textContent = result.text;
-      whatsappDataMessage = buildWhatsAppMessage(payload);
-
-      connectWrap.style.display = "block";
-      resultBox.style.display = "block";
-      resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    whatsappBtn.addEventListener("click", openWhatsApp);
-
-    resetBtn.addEventListener("click", () => {
-      form.reset();
-      fullNameEl.value = "";
-      phoneEl.value = "";
-      ageEl.value = "";
-      resultBox.style.display = "none";
-      connectWrap.style.display = "none";
-      scoreText.textContent = "";
-      resultTitle.textContent = "";
-      resultDesc.textContent = "";
-      whatsappDataMessage = "";
-      updateProgress();
-    });
-
-    updateProgress();
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+</div>
 
 <script>
-  const phoneInput = document.querySelector("#phone");
+const questions = [
+"Do you overthink even small situations?",
+"Do you feel nervous or tense without a clear reason?",
+"Do you experience a fast heartbeat, chest tightness, or restlessness?",
+"Do worst-case scenarios repeatedly come to your mind?",
+"Do you find it difficult to relax?",
+"Do you struggle with sleep because of excessive thinking or worry?",
+"Do social interactions make you feel nervous or uncomfortable?",
+"Do you find it hard to concentrate?",
+"Do you experience physical symptoms like sweating, shaking, or stomach discomfort during stress?",
+"Do you constantly feel like something bad might happen?",
+"Do small mistakes feel like major failures?",
+"Have you started avoiding calls, people, work, or situations more than usual?",
+"Do you feel mentally exhausted even after resting?",
+"Do you struggle to control your thoughts or worries?",
+"Is anxiety affecting your daily routine or productivity?"
+];
 
-  const iti = window.intlTelInput(phoneInput, {
-    initialCountry: "in",
-    separateDialCode: true,
-    preferredCountries: ["in", "ae", "qa", "sa", "kw", "us", "gb"],
-    utilsScript:
-      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+const form = document.getElementById("testForm");
+
+questions.forEach((q,index)=>{
+  form.innerHTML += `
+    <div class="question">
+      <p>${index+1}. ${q}</p>
+
+      <select id="q${index+1}">
+        <option value="">Select answer</option>
+        <option value="0">Never</option>
+        <option value="1">Sometimes</option>
+        <option value="2">Often</option>
+        <option value="3">Almost every day</option>
+      </select>
+    </div>
+  `;
+});
+
+const phoneInput = document.querySelector("#phone");
+
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "in",
+  separateDialCode: true,
+  preferredCountries: ["in","ae","qa","sa","kw","us","gb"],
+  utilsScript:
+  "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+});
+
+let whatsappMessage = "";
+
+async function submitTest(){
+
+  const fullname = document.getElementById("fullname").value.trim();
+  const age = document.getElementById("age").value.trim();
+  const phone = iti.getNumber();
+
+  if(!fullname || !phone || !age){
+    alert("Please fill all details");
+    return;
+  }
+
+  let total = 0;
+
+  for(let i=1;i<=15;i++){
+
+    const val = document.getElementById(`q${i}`).value;
+
+    if(val===""){
+      alert("Please answer all questions");
+      return;
+    }
+
+    total += Number(val);
+  }
+
+  let title = "";
+  let desc = "";
+
+  if(total<=10){
+    title = "Mild Awareness Zone";
+    desc = "You may be experiencing normal stress levels rather than significant anxiety.";
+  }
+  else if(total<=25){
+    title = "Moderate Anxiety Signs";
+    desc = "You may be developing noticeable anxiety patterns.";
+  }
+  else if(total<=35){
+    title = "High Anxiety Impact";
+    desc = "Anxiety may be significantly affecting your routine and emotions.";
+  }
+  else{
+    title = "Severe Distress Zone";
+    desc = "Speaking with a mental health professional is strongly recommended.";
+  }
+
+  document.getElementById("resultBox").style.display = "block";
+
+  document.getElementById("scoreText").innerText =
+  `Hey ${fullname}, your score is ${total}/45`;
+
+  document.getElementById("resultTitle").innerText = title;
+
+  document.getElementById("resultDesc").innerText = desc;
+
+  whatsappMessage =
+  "Hello, I attended your anxiety test and I would like to talk about it.";
+
+  await fetch("https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec",{
+    method:"POST",
+    mode:"no-cors",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+      fullname,
+      phone,
+      age,
+      score:total,
+      result:title,
+      time:new Date().toLocaleString()
+    })
   });
+
+  document.getElementById("resultBox").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+function openWhatsApp(){
+
+  const url =
+  `https://wa.me/918590991552?text=${encodeURIComponent(whatsappMessage)}`;
+
+  window.open(url,"_blank");
+}
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
 </body>
 </html>
