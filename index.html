@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MindLap Anxiety Test</title>
+  <title>MindLap Depression Test</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
 
@@ -23,6 +23,7 @@
       padding:25px;
       border-radius:25px;
       box-shadow:0 10px 35px rgba(0,0,0,0.08);
+      overflow: visible;
     }
 
     .logo{
@@ -59,6 +60,8 @@
 
     .field{
       margin-bottom:18px;
+      position: relative;
+      overflow: visible;
     }
 
     label{
@@ -147,6 +150,39 @@
 
     .iti{
       width:100%;
+      position:relative;
+      z-index:30;
+    }
+
+    .iti input{
+      width:100% !important;
+      padding-left:92px !important;
+      border-radius:12px;
+    }
+
+    .iti__selected-flag{
+      border-radius:12px 0 0 12px;
+    }
+
+    .iti__country-list{
+      z-index:2147483647 !important;
+      background:#ffffff !important;
+      color:#111111 !important;
+      border:1px solid rgba(0,0,0,0.10) !important;
+      border-radius:16px !important;
+      box-shadow:0 16px 40px rgba(0,0,0,0.18) !important;
+      max-height:280px !important;
+      overflow-y:auto !important;
+      opacity:1 !important;
+    }
+
+    .iti__country-list *{
+      color:#111111 !important;
+    }
+
+    .iti__search-input{
+      background:#ffffff !important;
+      color:#111111 !important;
     }
 
     @media(max-width:768px){
@@ -172,7 +208,7 @@
       <span class="mind">Mind</span><span class="lap">Lap</span>
     </div>
 
-    <h1>Anxiety Self-Awareness Test</h1>
+    <h1>Depression Self-Awareness Test</h1>
 
     <div class="subtitle">
       A simple self-awareness screening tool.<br>
@@ -196,21 +232,21 @@
 
     <form id="testForm"></form>
 
-    <button type="button" onclick="submitTest()">Submit Test</button>
+    <button type="button" id="submitBtn">Submit Test</button>
 
     <div class="result" id="resultBox">
       <h2 id="scoreText"></h2>
       <h3 id="resultTitle"></h3>
       <p id="resultDesc"></p>
 
-      <button type="button" class="whatsapp-btn" onclick="openWhatsApp()">
+      <button type="button" class="whatsapp-btn" id="whatsappBtn">
         Connect with us
       </button>
     </div>
 
     <div class="notice">
       This test is for self-awareness purposes only and not a medical diagnosis.
-      If anxiety is affecting your daily life, consider speaking with a qualified mental health professional.
+      If emotional difficulties are affecting your daily life, consider speaking with a qualified mental health professional.
     </div>
 
   </div>
@@ -220,21 +256,21 @@
 
   <script>
     const questions = [
-      "Do you overthink even small situations?",
-      "Do you feel nervous or tense without a clear reason?",
-      "Do you experience a fast heartbeat, chest tightness, or restlessness?",
-      "Do worst-case scenarios repeatedly come to your mind?",
-      "Do you find it difficult to relax?",
-      "Do you struggle with sleep because of excessive thinking or worry?",
-      "Do social interactions make you feel nervous or uncomfortable?",
-      "Do you find it hard to concentrate?",
-      "Do you experience physical symptoms like sweating, shaking, or stomach discomfort during stress?",
-      "Do you constantly feel like something bad might happen?",
-      "Do small mistakes feel like major failures?",
-      "Have you started avoiding calls, people, work, or situations more than usual?",
+      "Do you often feel emotionally low or empty without a clear reason?",
+      "Have you lost interest in activities you previously enjoyed?",
       "Do you feel mentally exhausted even after resting?",
-      "Do you struggle to control your thoughts or worries?",
-      "Is anxiety affecting your daily routine or productivity?"
+      "Do you struggle to feel motivated for daily tasks?",
+      "Do you often feel hopeless about the future?",
+      "Have your sleep patterns changed significantly recently?",
+      "Do you isolate yourself from friends, family, or social situations?",
+      "Do small tasks feel unusually overwhelming?",
+      "Do you frequently feel worthless or like a burden?",
+      "Have you noticed changes in your appetite or eating habits?",
+      "Do you find it difficult to concentrate or make decisions?",
+      "Do you feel emotionally numb or disconnected from people around you?",
+      "Have you been feeling unusually irritable, frustrated, or emotionally sensitive?",
+      "Do you often feel like life has become repetitive or meaningless?",
+      "Is your emotional state affecting your productivity, relationships, or daily routine?"
     ];
 
     const form = document.getElementById("testForm");
@@ -261,10 +297,39 @@
       initialCountry: "in",
       separateDialCode: true,
       preferredCountries: ["in", "ae", "qa", "sa", "kw", "us", "gb"],
+      allowDropdown: true,
+      dropdownContainer: document.body,
+      nationalMode: false,
       utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
     });
 
-    let whatsappMessage = "Hello, I attended your anxiety test and I would like to talk about it.";
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec";
+
+    let whatsappMessage = "Hello, I attended your depression test and I would like to talk about it.";
+
+    function getResult(total) {
+      if (total <= 10) {
+        return {
+          title: "Mild Emotional Strain",
+          desc: "You may be experiencing temporary emotional stress or low mood. Rest, support, and self-care may help."
+        };
+      } else if (total <= 25) {
+        return {
+          title: "Moderate Emotional Difficulty",
+          desc: "You may be developing noticeable emotional struggles that could affect your routine and motivation."
+        };
+      } else if (total <= 35) {
+        return {
+          title: "High Emotional Impact",
+          desc: "Your emotional wellbeing may be significantly affected. Professional support could be beneficial."
+        };
+      } else {
+        return {
+          title: "Severe Distress Zone",
+          desc: "Your emotional state may be strongly affecting your daily functioning and wellbeing. Speaking with a qualified mental health professional is strongly recommended."
+        };
+      }
+    }
 
     async function submitTest() {
       const fullname = document.getElementById("fullname").value.trim();
@@ -289,29 +354,14 @@
         total += Number(val);
       }
 
-      let title = "";
-      let desc = "";
-
-      if (total <= 10) {
-        title = "Mild Awareness Zone";
-        desc = "You may be experiencing normal stress levels rather than significant anxiety. Improving sleep, routine, and stress management may help.";
-      } else if (total <= 25) {
-        title = "Moderate Anxiety Signs";
-        desc = "You may be developing noticeable anxiety patterns. Emotional regulation, grounding techniques, and lifestyle adjustments could be helpful.";
-      } else if (total <= 35) {
-        title = "High Anxiety Impact";
-        desc = "Anxiety may be significantly affecting your routine and emotions. Seeking professional support could be beneficial.";
-      } else {
-        title = "Severe Distress Zone";
-        desc = "Anxiety may be strongly impacting your daily functioning, sleep, relationships, or concentration. Speaking with a qualified mental health professional is strongly recommended.";
-      }
+      const result = getResult(total);
 
       document.getElementById("scoreText").innerText = `Hey ${fullname}, your score is ${total}/45`;
-      document.getElementById("resultTitle").innerText = title;
-      document.getElementById("resultDesc").innerText = desc;
+      document.getElementById("resultTitle").innerText = result.title;
+      document.getElementById("resultDesc").innerText = result.desc;
       document.getElementById("resultBox").style.display = "block";
 
-      await fetch("https://script.google.com/macros/s/AKfycbwaBe654YljcA92cJtsFrhrZzj9U9wnJROzP8F0qzkGYvz9hyGj9ZTjSIfOXrsGVpje/exec", {
+      await fetch(SHEET_URL, {
         method: "POST",
         mode: "no-cors",
         headers: {
@@ -323,8 +373,9 @@
           phone,
           age,
           score: total,
-          result: title,
-          answers: Array.from({ length: 15 }, (_, i) => document.getElementById(`q${i + 1}`).value)
+          result: result.title,
+          answers: Array.from({ length: 15 }, (_, i) => document.getElementById(`q${i + 1}`).value),
+          type: "Depression Test"
         })
       });
 
@@ -335,6 +386,9 @@
       const url = `https://wa.me/918590991552?text=${encodeURIComponent(whatsappMessage)}`;
       window.open(url, "_blank");
     }
+
+    document.getElementById("submitBtn").addEventListener("click", submitTest);
+    document.getElementById("whatsappBtn").addEventListener("click", openWhatsApp);
   </script>
 </body>
 </html>
