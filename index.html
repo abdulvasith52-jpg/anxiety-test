@@ -657,7 +657,7 @@
       const payload = {
         timestamp: new Date().toISOString(),
         fullname: fullNameEl.value.trim(),
-        phone: phoneEl.value.trim(),
+        phone: document.getElementById("countryCode").value + phoneEl.value.trim(),
         age: ageEl.value.trim(),
         score,
         result: result.title,
